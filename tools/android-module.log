@@ -1,0 +1,56 @@
+=== android module start ===
+2026-10-18T04:53:59.7256000+00:00 DL  -> D:\Unity\installers\sdk\p37.zip
+2026-10-18T04:54:00.3674869+00:00 DL  <- D:\Unity\installers\sdk\p37.zip : 67281901 bytes in 597 ms
+2026-10-18T04:54:00.3727328+00:00 DL  -> D:\Unity\installers\sdk\pt.zip
+2026-10-18T04:54:00.7449411+00:00 DL  <- D:\Unity\installers\sdk\pt.zip : 8044989 bytes in 369 ms
+2026-10-18T04:54:00.7474815+00:00 DL  -> D:\Unity\installers\jdk.zip
+2026-10-18T04:54:03.3488498+00:00 DL  <- D:\Unity\installers\jdk.zip : 118110508 bytes in 2596 ms
+2026-10-18T04:54:03.3506012+00:00 DL  -> D:\Unity\installers\sdk\p34.zip
+2026-10-18T04:54:03.8672031+00:00 DL  <- D:\Unity\installers\sdk\p34.zip : 63180079 bytes in 515 ms
+2026-10-18T04:54:03.8685245+00:00 DL  -> D:\Unity\installers\sdk\cmt.zip
+2026-10-18T04:54:04.6051358+00:00 DL  <- D:\Unity\installers\sdk\cmt.zip : 143481958 bytes in 735 ms
+2026-10-18T04:54:04.6062720+00:00 DL  -> D:\Unity\installers\sdk\p36.zip
+2026-10-18T04:54:05.1676218+00:00 DL  <- D:\Unity\installers\sdk\p36.zip : 65878410 bytes in 560 ms
+2026-10-18T04:54:05.1688680+00:00 DL  -> D:\Unity\installers\sdk\ndk.zip
+2026-10-18T04:54:07.6705834+00:00 DL  <- D:\Unity\installers\sdk\ndk.zip : 781511249 bytes in 2500 ms
+2026-10-18T04:54:07.6713821+00:00 DL  -> D:\Unity\installers\sdk\bt.zip
+2026-10-18T04:54:08.1263245+00:00 DL  <- D:\Unity\installers\sdk\bt.zip : 58699878 bytes in 454 ms
+2026-10-18T04:54:08.1273957+00:00 DL  -> D:\Unity\installers\as.exe
+2026-10-18T04:54:42.9298425+00:00 DL  <- D:\Unity\installers\as.exe : 1537996056 bytes in 34801 ms
+2026-10-18T04:54:42.9307405+00:00 DL  -> D:\Unity\installers\sdk\cmake.zip
+2026-10-18T04:54:43.7651908+00:00 DL  <- D:\Unity\installers\sdk\cmake.zip : 16116742 bytes in 833 ms
+--- downloads done; installing ---
+installing Android Support EXE...
+2026-10-18T04:56:48.5330739+00:00 as.exe done in 125s
+2026-10-18T04:56:48.5356173+00:00 PlaybackEngines exists: True
+2026-10-18T04:56:48.6063456+00:00 jdk roots: bin,conf,include,legal,lib,NOTICE,release
+2026-10-18T04:56:49.6415589+00:00 jdk child: Apk
+2026-10-18T04:56:49.6522652+00:00 OpenJDK after fixup: False
+2026-10-18T04:56:49.8982376+00:00 ndk roots: android-ndk-r27c
+2026-10-18T04:57:00.9863533+00:00 NDK inner folder flattened
+2026-10-18T04:57:00.9872814+00:00 NDK source.properties: True
+2026-10-18T04:57:01.0328155+00:00 cmake roots: bin,doc,share,source.properties
+2026-10-18T04:57:02.3058937+00:00 cmake exe: False
+2026-10-18T04:57:02.3090593+00:00 bt roots: android-16
+2026-10-18T04:57:03.0282071+00:00 build-tools renamed -> 36.0.0
+2026-10-18T04:57:03.0291173+00:00 aapt2: True
+2026-10-18T04:57:03.0305671+00:00 pt roots: platform-tools
+2026-10-18T04:57:03.1023126+00:00 adb: True
+2026-10-18T04:57:03.2844724+00:00 p34.zip roots: android-34
+2026-10-18T04:57:08.1998950+00:00 platforms now: android-34
+2026-10-18T04:57:08.3263012+00:00 p36.zip roots: android-36
+2026-10-18T04:57:13.2190292+00:00 platforms now: android-34, android-36
+2026-10-18T04:57:13.3462301+00:00 p37.zip roots: android-37.0
+2026-10-18T04:57:18.3604018+00:00 platforms now: android-34, android-36, android-37.0
+2026-10-18T04:57:18.3646415+00:00 cmt roots: cmdline-tools
+2026-10-18T04:57:19.1141670+00:00 cmdline-tools renamed -> 16.0
+2026-10-18T04:57:19.1148462+00:00 sdkmanager: False
+--- recap ---
+2026-10-18T04:57:19.1157040+00:00 AP bin: MISSING
+2026-10-18T04:57:19.1162086+00:00 OpenJDK: MISSING
+2026-10-18T04:57:19.1169487+00:00 NDK: OK
+2026-10-18T04:57:19.1175408+00:00 platform-tools: MISSING
+2026-10-18T04:57:19.1180183+00:00 build-tools: OK
+2026-10-18T04:57:19.1185371+00:00 cmdline-tools: MISSING
+2026-10-18T04:57:19.1190488+00:00 cmake: MISSING
+=== android module end ===

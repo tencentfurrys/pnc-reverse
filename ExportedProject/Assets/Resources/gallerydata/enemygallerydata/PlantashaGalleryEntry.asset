@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: PlantashaGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 9
+  alwaysUnlocked: 0
+  enemyName: Plantasha
+  enemyDescription: 'The soil in the gauntlet has soaked up so much semen and magic the plants have started evolving plump lips and breasts. They incessantly hunt for nutrients and won''t unlatch until everythings gone. '
+  enemyIcon: {fileID: 21300000, guid: 9f6c97d7c574f8d4db1b634a04223e94, type: 2}
+  animatorController: {fileID: 9100000, guid: 45458e6de8c40de4b8ba9907d4ecb627, type: 2}
+  availableAnimations:
+  - Idle
+  - Grab
+  - Spin
+  - Shoot
+  - IdleAlt1
+  - GrabAlt1
+  - SpinAlt1
+  - ShootAlt1
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: d2c95977fe1a6f045a17931f1a792b42, type: 2}
+  grabAnimations:
+  - animationName: Start
+    sound: {fileID: 8300000, guid: 52960f6ddf727b3449a215b32c69aca6, type: 3}
+  - animationName: Cum
+    sound: {fileID: 8300000, guid: 8ae912a628f26f44f8d7c4818c4c059c, type: 3}
+  - animationName: StartAlt1
+    sound: {fileID: 8300000, guid: 52960f6ddf727b3449a215b32c69aca6, type: 3}
+  - animationName: CumAlt1
+    sound: {fileID: 8300000, guid: 8ae912a628f26f44f8d7c4818c4c059c, type: 3}

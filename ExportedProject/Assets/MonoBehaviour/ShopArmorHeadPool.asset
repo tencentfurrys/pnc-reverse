@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b921c6de17ed0490a2b2d4f5b046e23, type: 3}
+  m_Name: ShopArmorHeadPool
+  m_EditorClassIdentifier:
+  poolName: Shop Head Armor Pool
+  description: A pool to be used only for top slot (Head) armors for the store display(s)
+  commonItems:
+  - item: {fileID: 11400000, guid: c4828c8dd1733c441a4c3cf580e6ddef, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 0f3c55fdeedd7c048986614911523901, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: fcd691fd7b1f9b3459ea2ce6bd4bc919, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 6941e5257e8e3be41944effa8f48d656, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  uncommonItems:
+  - item: {fileID: 11400000, guid: 2e57e96faebff624b89640e70239e3c2, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 1
+  rareItems:
+  - item: {fileID: 11400000, guid: 3d373b56273059643880c77742745bbd, type: 2}
+    weight: 0.3
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  epicItems:
+  - item: {fileID: 11400000, guid: 62b7b17df9e5e7544b3ef1d30c8b6e52, type: 2}
+    weight: 0.2
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 5e521fa19ac725b45ae4a1cf1ecd918b, type: 2}
+    weight: 0.2
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 30a50d43924df6545b531ec7f588080b, type: 2}
+    weight: 0.2
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: a2e5dcacc128a1548b07508f4453aa2b, type: 2}
+    weight: 0.2
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  legendaryItems:
+  - item: {fileID: 11400000, guid: e40e4d3e30b9ce2418263127f4587241, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  showStatistics: 1

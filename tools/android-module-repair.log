@@ -1,0 +1,25 @@
+=== repair2 start ===
+cmdline-tools: True
+cmake: True
+aapt2: True
+adb: True
+java.exe: True
+=== recap ===
+OpenJDK+java: OK
+NDK: OK
+platform-tools: OK
+build-tools: OK
+cmdline-tools: OK
+cmake: OK
+Tools: OK-dir [gradle, GradleTemplates, Pram, Pram.Platform.Android, VisualStudioGradleTemplates, AndroidNativeLink.xml, bundletool-all-1.17.2.jar, RunElevatedCommand.ps1, sdktools.jar, UnityProGuardTemplate.txt]
+accepting licenses...
+lic: 10.7 Special Terms for Pre-Release Materials. If so indicated in the description of the Evaluation Software, the Evaluation Software may contain Pre-Release Materials. Recipient hereby understands, acknowledges and agrees that: (i) Pre-Release Materials may not be fully tested and may contain bugs or errors; (ii) Pre-Release materials are not suitable for commercial release in their current state; (iii) regulatory approvals for Pre-Release Materials (such as UL or FCC) have not been obtained, and Pre-Release Materials may therefore not be certified for use in certain countries or environments or may not be suitable for certain applications and (iv) MIPS can provide no assurance that it will ever produce or make generally available a production version of the Pre-Release Materials . MIPS is not under any obligation to develop and/or release or offer for sale or license a final product based upon the Pre-Release Materials and may unilaterally elect to abandon the Pre-Release Materials or any such development platform at any time and without any obligation or liability whatsoever to Recipient or any other person.
+lic: 
+lic: ANY PRE-RELEASE MATERIALS ARE NON-QUALIFIED AND, AS SUCH, ARE PROVIDED ôAS ISö AND ôAS AVAILABLEö, POSSIBLY WITH FAULTS, AND WITHOUT REPRESENTATION OR WARRANTY OF ANY KIND.
+lic: 
+lic: 10.8 Open Source Software. In the event Open Source software is included with Evaluation Software, such Open Source software is licensed pursuant to the applicable Open Source software license agreement identified in the Open Source software comments in the applicable source code file(s) and/or file header as indicated in the Evaluation Software. Additional detail may be available (where applicable) in the accompanying on-line documentation. With respect to the Open Source software, nothing in this Agreement limits any rights under, or grants rights that supersede, the terms of any applicable Open Source software license agreement.
+lic: ---------------------------------------
+lic: Accept? (y/N): All SDK package licenses accepted
+lic: 
+licenses: android-googletv-license, android-googlexr-license, android-sdk-arm-dbt-license, android-sdk-license, android-sdk-preview-license, google-gdk-license, microxr-sysimage-license, mips-android-sysimage-license
+=== repair2 end ===

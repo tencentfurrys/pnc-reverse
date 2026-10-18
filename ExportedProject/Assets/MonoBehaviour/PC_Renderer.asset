@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1575395517, guid: c88ab7b37c4f350242674d2efd621c19, type: 3}
+  m_Name: PC_Renderer
+  m_EditorClassIdentifier:
+  debugShaders:
+    debugReplacementPS: {fileID: 4800000, guid: 77b2ee529164a2b46ae55f8db08bae1d, type: 3}
+    hdrDebugViewPS: {fileID: 4800000, guid: 4a96de51bb8081c4ab3bde7de8e4da4a, type: 3}
+  probeVolumeResources:
+    probeVolumeDebugShader: {fileID: 0}
+    probeVolumeFragmentationDebugShader: {fileID: 0}
+    probeVolumeOffsetDebugShader: {fileID: 0}
+    probeVolumeSamplingDebugShader: {fileID: 0}
+    probeSamplingDebugMesh: {fileID: 0}
+    probeSamplingDebugTexture: {fileID: 0}
+    probeVolumeBlendStatesCS: {fileID: 0}
+  m_RendererFeatures:
+  - {fileID: 11400000, guid: af677a52fa57d6e44a4fa24a3c637c88, type: 2}
+  - {fileID: 11400000, guid: ad632f7c8a68b8843bb859b343ee0b45, type: 2}
+  - {fileID: 11400000, guid: 9ce03cd4c30165f4cb21ded242b0d66e, type: 2}
+  - {fileID: 11400000, guid: 1601154a25d8cb844bef9898c17e5ac4, type: 2}
+  m_RendererFeatureMap: e4cea1b98a70f4357d1af42bfb86445958eb93ca9db00c4ff5a59ed9802e900c
+  m_UseNativeRenderPass: 1
+  xrSystemData: {fileID: 0}
+  postProcessData: {fileID: 11400000, guid: ba7665ca23c30dc4bac1ae75f21765cb, type: 2}
+  m_AssetVersion: 3
+  m_PrepassLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_TransparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_DefaultStencilState:
+    overrideStencilState: 0
+    stencilReference: 0
+    stencilCompareFunction: 3
+    passOperation: 2
+    failOperation: 0
+    zFailOperation: 0
+  m_ShadowTransparentReceive: 1
+  m_RenderingMode: 2
+  m_DepthPrimingMode: 0
+  m_CopyDepthMode: 0
+  m_DepthAttachmentFormat: 0
+  m_DepthTextureFormat: 0
+  m_AccurateGbufferNormals: 0
+  m_IntermediateTextureMode: 1

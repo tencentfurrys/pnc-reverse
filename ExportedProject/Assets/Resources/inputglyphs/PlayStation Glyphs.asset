@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63213c2383fb328b3a375cea3fb5109b, type: 3}
+  m_Name: PlayStation Glyphs
+  m_EditorClassIdentifier:
+  spriteAsset: {fileID: 11400000, guid: 944c1281894516a4cad078324300b449, type: 2}
+  entries:
+  - controlPath: '<Gamepad>/buttonNorth'
+    glyphName: controller_buttons_7
+  - controlPath: '<Gamepad>/buttonEast'
+    glyphName: controller_buttons_8
+  - controlPath: '<Gamepad>/buttonSouth'
+    glyphName: controller_buttons_5
+  - controlPath: '<Gamepad>/buttonWest'
+    glyphName: controller_buttons_6
+  - controlPath: '<Gamepad>/dpad/up'
+    glyphName: controller_buttons_1
+  - controlPath: '<Gamepad>/dpad/left'
+    glyphName: controller_buttons_3
+  - controlPath: '<Gamepad>/dpad/down'
+    glyphName: controller_buttons_2
+  - controlPath: '<Gamepad>/dpad/right'
+    glyphName: controller_buttons_4
+  - controlPath: '<Gamepad>/leftShoulder'
+    glyphName: controller_buttons_26
+  - controlPath: '<Gamepad>/rightShoulder'
+    glyphName: controller_buttons_25
+  - controlPath: '<Gamepad>/leftTrigger'
+    glyphName: controller_buttons_28
+  - controlPath: '<Gamepad>/rightTrigger'
+    glyphName: controller_buttons_27
+  - controlPath: '<Gamepad>/start'
+    glyphName: controller_buttons_33
+  - controlPath: '<Gamepad>/select'
+    glyphName: controller_buttons_34
+  - controlPath: '<Gamepad>/leftStickPress'
+    glyphName: controller_buttons_9
+  - controlPath: '<Gamepad>/rightStickPress'
+    glyphName: controller_buttons_10
+  - controlPath: '<Gamepad>/leftStick'
+    glyphName: controller_buttons_13
+  - controlPath: '<Gamepad>/rightStick'
+    glyphName: controller_buttons_17

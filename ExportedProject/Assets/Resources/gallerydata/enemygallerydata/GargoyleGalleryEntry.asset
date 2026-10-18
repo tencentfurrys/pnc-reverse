@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: GargoyleGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 2
+  alwaysUnlocked: 0
+  enemyName: Gargoyle
+  enemyDescription: "A flying Gar(girl) imbued with evil energy. Her skin is hard like stone, but her insides are wet and warm.\n\n\"I dun seen one clench er buttcheeks and lift a man in the air by his penis alone.\"  - Whistlin' Willy "
+  enemyIcon: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 38064c4464868a047b06c6c8dea0019f, type: 2}
+  availableAnimations:
+  - Idle
+  - Attack
+  - Grab
+  - IdleAlt
+  - AttackAlt
+  - GrabAlt
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: 00d0dab28513adc4e8db87ed48edfd60, type: 2}
+  grabAnimations:
+  - animationName: Grabbed
+    sound: {fileID: 8300000, guid: 1ddabfb35d9ee5049bb958c2c0eac55d, type: 3}
+  - animationName: Cum
+    sound: {fileID: 8300000, guid: 964f126614c79f946ba98055572f6e83, type: 3}
+  - animationName: CumContinue
+    sound: {fileID: 8300000, guid: 1ddabfb35d9ee5049bb958c2c0eac55d, type: 3}
+  - animationName: GrabbedAlt
+    sound: {fileID: 8300000, guid: 1ddabfb35d9ee5049bb958c2c0eac55d, type: 3}
+  - animationName: CumAlt
+    sound: {fileID: 8300000, guid: 964f126614c79f946ba98055572f6e83, type: 3}
+  - animationName: CumContinueAlt
+    sound: {fileID: 8300000, guid: 1ddabfb35d9ee5049bb958c2c0eac55d, type: 3}

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2105402493, guid: a4cb41a224e9630af829992d2f806637, type: 3}
+  m_Name: DunGen Settings
+  m_EditorClassIdentifier:
+  BoundsCalculationsIgnoreSprites: 0
+  BoundsCalculator:
+    rid: 1296040954954514799
+  BroadphaseSettings:
+    rid: 4561296967766638592
+  RecalculateTileBoundsOnSave: 1
+  EnableTilePooling: 0
+  DisplayFailureReportWindow: 1
+  CheckForUnusedFiles: 1
+  CollisionThreshold: 0
+  defaultSocket: {fileID: 11400000, guid: a9d7c13b875b6144e809a828fe8d45dd, type: 2}
+  tagManager:
+    keys: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+    values:
+    - Corridor
+    - Sewer
+    - Small Room
+    - Large Room
+    - Caverns
+    - Dungeon
+    - Mansion
+    - Entry
+    - Special
+    - Transition
+    - Shop
+  fileVersion: 2
+  migrationWarningVersion: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 1296040954954514799
+      type: {class: DefaultTileBoundsCalculator, ns: DunGen.TileBounds, asm: DunGen}
+      data:
+        IncludeRenderers: 1
+        IncludeSpriteRenderers: 1
+        IncludeColliders: 1
+        IncludeTriggerColliders: 0
+        IncludeTerrain: 1
+        IncludeInactive: 0
+        LayerMask:
+          serializedVersion: 2
+          m_Bits: 4294967295
+    - rid: 4561296967766638592
+      type: {class: SpatialHashBroadphaseSettings, ns: DunGen.Collision, asm: DunGen}
+      data:
+        CellSize: 40

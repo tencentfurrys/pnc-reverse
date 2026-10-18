@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: MimicGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 6
+  alwaysUnlocked: 0
+  enemyName: Mimic
+  enemyDescription: Open one of these and in a flash you're balls deep in the tightest, moaning, lil bubblegum monster you've ever had the displeasure of busting a nut in. (The weapon chest comes in spearmint)
+  enemyIcon: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 6e8df1e521d0f864eac6eb14c29ab7c8, type: 2}
+  availableAnimations:
+  - Idle
+  - IdleAlt1
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: f76144dcd2d6a1749bfd3244e1f873bc, type: 2}
+  grabAnimations:
+  - animationName: Start
+    sound: {fileID: 8300000, guid: 68e469fe66d623c40a6733bb0c59570c, type: 3}
+  - animationName: Loop
+    sound: {fileID: 8300000, guid: 545ffc7cd381abb4c90797526105789b, type: 3}
+  - animationName: Cum
+    sound: {fileID: 8300000, guid: f38e144880576fe49b84ac38ea1b5b16, type: 3}
+  - animationName: StartAlt1
+    sound: {fileID: 8300000, guid: 68e469fe66d623c40a6733bb0c59570c, type: 3}
+  - animationName: LoopAlt1
+    sound: {fileID: 8300000, guid: 545ffc7cd381abb4c90797526105789b, type: 3}
+  - animationName: CumAlt1
+    sound: {fileID: 8300000, guid: f38e144880576fe49b84ac38ea1b5b16, type: 3}

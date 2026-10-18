@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b921c6de17ed0490a2b2d4f5b046e23, type: 3}
+  m_Name: ArenaItemPool
+  m_EditorClassIdentifier:
+  poolName: Basic Chest Pool
+  description: A collection of items that can spawn from the arena
+  commonItems: []
+  uncommonItems:
+  - item: {fileID: 11400000, guid: 0433351874de5a74c80226d5919ff4ee, type: 2}
+    weight: 1.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 372378e80f87a4641929f62fb36b4240, type: 2}
+    weight: 1.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 3f771bab46f1f574c8ae4e138dfb10b3, type: 2}
+    weight: 1.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: e6228f66edf9925469868846305f696d, type: 2}
+    weight: 1.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: edde4451209f9aa4fa703feb91ddf683, type: 2}
+    weight: 1.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  rareItems:
+  - item: {fileID: 11400000, guid: 3d373b56273059643880c77742745bbd, type: 2}
+    weight: 1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: ed0d2f9f7ba0b1d41bdaceff8e5e9aa7, type: 2}
+    weight: 1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 5bfb10ad5434e6a49ac9337c157b2e1c, type: 2}
+    weight: 1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 65916ec46149a7c4285cf20810a8dbc6, type: 2}
+    weight: 1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: ea1bcb7693d902043a9104c5689d5938, type: 2}
+    weight: 1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  epicItems:
+  - item: {fileID: 11400000, guid: dafc1242c649d43448ea3a90540c7f2f, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: fb8f9f6c9ddc49c45bc24a99956b1f79, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 5c6bb93f957533243b36c9b4cdf518e5, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 62b7b17df9e5e7544b3ef1d30c8b6e52, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 6e0a7853d706f0d489a84075b6595cbb, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 3aaeb115a99ea9f4abafdf88d62bf0e5, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: e28c5b79b980d624bb3ce2bb82656428, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 1f0c399de9f7b1249b2e60681b5e5f15, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  legendaryItems:
+  - item: {fileID: 11400000, guid: 5e521fa19ac725b45ae4a1cf1ecd918b, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 73c5f55302462e2489f20d48bfdabf1e, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: e40e4d3e30b9ce2418263127f4587241, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 2fef0f99b4551214296973913f56420c, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 68baf483e891d0a439af40ce8e8dbedf, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  showStatistics: 1

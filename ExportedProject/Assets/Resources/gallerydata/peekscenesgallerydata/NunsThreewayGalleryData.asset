@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: NunsThreewayGalleryData
+  m_EditorClassIdentifier:
+  enemyID: P5
+  alwaysUnlocked: 0
+  enemyName: Nun Two It
+  enemyDescription:
+  enemyIcon: {fileID: 21300000, guid: bc5b757b912069248b793aecbd20709f, type: 2}
+  animatorController: {fileID: 0}
+  availableAnimations: []
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: f53eb4308e5bc834cadeaae6c5c1fbf1, type: 2}
+  grabAnimations:
+  - animationName: Loop
+    sound: {fileID: 8300000, guid: 5bd3e263652afe046b668e987d06219c, type: 3}

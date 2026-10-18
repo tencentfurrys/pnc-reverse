@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9774670062f5ac562d2882173dc0c4d, type: 3}
+  m_Name: InputGlyphDatabase
+  m_EditorClassIdentifier:
+  keyboardMouse: {fileID: 0}
+  xbox: {fileID: 11400000, guid: 48b09a0c739284f4286bc2577e65dc59, type: 2}
+  playStation: {fileID: 11400000, guid: c42d7dcebb387084fb73ef1d28a3f383, type: 2}
+  missingGlyphName: unknown

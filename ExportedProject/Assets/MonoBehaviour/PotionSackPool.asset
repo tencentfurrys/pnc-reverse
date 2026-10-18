@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b921c6de17ed0490a2b2d4f5b046e23, type: 3}
+  m_Name: PotionSackPool
+  m_EditorClassIdentifier:
+  poolName: Basic Chest Pool
+  description: A sack that is used ONLY to spawn Potions
+  commonItems:
+  - item: {fileID: 11400000, guid: 1b3d5ebc9317bb94fa3e0370afe5e198, type: 2}
+    weight: 20
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 41e38c7ef1ffcac46b843b0b5f8b6cfe, type: 2}
+    weight: 20
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 9df92d0e542c9ad4cb67b0e17e14f31c, type: 2}
+    weight: 20
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 854702d529df3f7479f7358ec11525cb, type: 2}
+    weight: 20
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  uncommonItems:
+  - item: {fileID: 11400000, guid: 5212d7878ecc9c94db3e17d2da389889, type: 2}
+    weight: 5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: a93ebe312344c184298988ac449c66f4, type: 2}
+    weight: 5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: af49dcd8523377a42af583aeaff83ab6, type: 2}
+    weight: 5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: a09f2254b67878946ab3a999a7c827d2, type: 2}
+    weight: 5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  rareItems:
+  - item: {fileID: 11400000, guid: e7ce403806cf6244485526ef11a1c76e, type: 2}
+    weight: 2.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: ba602a29dcb741a43aecb26632e75fe9, type: 2}
+    weight: 2.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  epicItems: []
+  legendaryItems:
+  - item: {fileID: 11400000, guid: ce313a24ed5010b46bd64775ced4e3f9, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: d99bf75f5d61f95428f03829d1a79716, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  showStatistics: 1

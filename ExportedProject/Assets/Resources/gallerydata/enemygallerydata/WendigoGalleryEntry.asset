@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: WendigoGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 8
+  alwaysUnlocked: 0
+  enemyName: Wendigo
+  enemyDescription: "An animalistic entity caught between a physical and spiritual world the Wendigo is obsessed with becoming human. Invisible until close the Wendigo sneaks up on tired travelers, sedating them and taking them to the forrest where she will breed.\n\n\"Once you get around the hair the pussy kinda grips!\" -Guy who got mad Wendigo cheeks. "
+  enemyIcon: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 1e972e9f02093034a91398e2a7e5a285, type: 2}
+  availableAnimations:
+  - Idle
+  - Walk
+  - Grab
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: a3b7a307d49c01e4cb6eabfdeea08877, type: 2}
+  grabAnimations:
+  - animationName: Start
+    sound: {fileID: 8300000, guid: 4b7f1bdc4e8f5e34ea86a7c5d977f5f9, type: 3}
+  - animationName: Continued
+    sound: {fileID: 8300000, guid: 8e49cf6c6b9cc244a9934634455f4610, type: 3}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: BlindedBeastGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 12
+  alwaysUnlocked: 0
+  enemyName: Blinded Beast
+  enemyDescription: 'In the hectic moments before transformation this semi-lycanthropic victim gouged their eyes out as a last minute attempt to blind themself from the full moon. A tempory measure however as she is doomed to transform at the slightest primal nudge.  '
+  enemyIcon: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: d57fabad25a910749a45bc2e70e87673, type: 2}
+  availableAnimations:
+  - Idle
+  - Walk
+  - Grab
+  - Attack
+  - Transform
+  - Idle_T
+  - Walk_T
+  - Grab_T
+  - Attack_T
+  - Shoot_T
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: 00916bd75568cfd4b8e5585171a2cae7, type: 2}
+  grabAnimations:
+  - animationName: Start
+    sound: {fileID: 8300000, guid: 50db4d9ab9399304c8f515052ba9708a, type: 3}
+  - animationName: Cum
+    sound: {fileID: 8300000, guid: 3fde90cb7ea570d42a36e5601366c297, type: 3}
+  - animationName: Start_T
+    sound: {fileID: 8300000, guid: 4ee1b22da7e6f1845be1f0f394a18eed, type: 3}
+  - animationName: Cum_T
+    sound: {fileID: 8300000, guid: 721b392398060454a8328f150a6e58e8, type: 3}

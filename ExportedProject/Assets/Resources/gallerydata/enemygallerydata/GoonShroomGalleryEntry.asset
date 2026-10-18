@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: GoonShroomGalleryEntry
+  m_EditorClassIdentifier:
+  enemyID: 13
+  alwaysUnlocked: 0
+  enemyName: Goon Shroom
+  enemyDescription: "Spawned from the mixture of damp corners, forcefully milked semen and magically enhanced pheromones the Goon Shrooms mindlessly search for cocks to feed on. Purely unsexual in intent a Goon Shrooms lips (both upper and lower) are tailor made to seal air tight around the male dick head resulting in an intense and pleasurable succion effect. Experienced men are lucky to last seconds.\n\nUpon dying as a last \"fuck you\" Goon Shrooms gather up their lustful magic energy and self detonate, leaving behind the magic dust of their pheromone buildup. "
+  enemyIcon: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: aefe4a8f0449ed84ead6ff8241cf51cb, type: 2}
+  availableAnimations:
+  - Idle
+  - Walk
+  - Charging
+  - Explode
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: 05741b8d984ac35419516ffd7543ffbd, type: 2}
+  grabAnimations:
+  - animationName: GoonShroom 1
+    sound: {fileID: 8300000, guid: 5fac2eabf17a8734a85043844ff32573, type: 3}
+  - animationName: GoonShroom 2
+    sound: {fileID: 8300000, guid: 49a6544548fef994fbc4c13b9fa93b9e, type: 3}
+  - animationName: GoonShroom 3
+    sound: {fileID: 8300000, guid: 2d846d69dd633bc44accee6705ec56f1, type: 3}
+  - animationName: Loop
+    sound: {fileID: 8300000, guid: a41595cc9a23396429c415b9010860f6, type: 3}
+  - animationName: Cum
+    sound: {fileID: 8300000, guid: 4c46583c53b901846a171e645c17c98a, type: 3}

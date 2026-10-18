@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c182c7a5b1028dc32c2e1029ba04b9b, type: 3}
+  m_Name: TooltipIcons
+  m_EditorClassIdentifier:
+  statIcons:
+  - statType: 0
+    icon: {fileID: 21300000, guid: a2eda874ab35b384eb750246b34ff853, type: 2}
+    description: Base Damage
+    consumableDescription:
+  - statType: 1
+    icon: {fileID: 21300000, guid: 89871b3112833594c8edfa729468211d, type: 2}
+    description: How much heat this weapon's primary attack generates
+    consumableDescription: How much heat this item reduces
+  - statType: 3
+    icon: {fileID: 21300000, guid: e6b19a65543561f48afd61be551a22ca, type: 2}
+    description: How much heat this weapon's special attack generates
+    consumableDescription:
+  - statType: 4
+    icon: {fileID: 21300000, guid: 3198051d4da85cb4c916344d9865db51, type: 2}
+    description: Defense
+    consumableDescription: How much Additional defense this item grants
+  - statType: 6
+    icon: {fileID: 21300000, guid: 4bd67d9f2033de647b31c42e11d470bb, type: 2}
+    description: Movement Speed
+    consumableDescription: Movement Speed
+  - statType: 7
+    icon: {fileID: 21300000, guid: 1d7764ec00804124c89b7fb55567c033, type: 2}
+    description: 'Crit multiplier '
+    consumableDescription:
+  - statType: 11
+    icon: {fileID: 21300000, guid: a929af654ecf71c41a5756812634124e, type: 2}
+    description: Maximum Heat Capacity
+    consumableDescription: Maximum Heat Capacity
+  - statType: 10
+    icon: {fileID: 21300000, guid: 73ba96544b297824d9880d28453adca8, type: 2}
+    description: Max Health Capacity
+    consumableDescription: Max Health Capacity
+  - statType: 8
+    icon: {fileID: 21300000, guid: b1e543346a1d58c4b8f12daaba9d348f, type: 2}
+    description: The amount of health this item will restore
+    consumableDescription: The amount of health this item will restore
+  - statType: 13
+    icon: {fileID: 21300000, guid: 9b9209a204de95d42829242c001d6584, type: 2}
+    description: Dash force
+    consumableDescription:
+  - statType: 14
+    icon: {fileID: 21300000, guid: 62329be04e80b97458a93953bc31330e, type: 2}
+    description: Dash Distance
+    consumableDescription:
+  - statType: 12
+    icon: {fileID: 21300000, guid: 16dfc7388bfd6474aa071287e3a79aa9, type: 2}
+    description: Dash Charges
+    consumableDescription:
+  - statType: 16
+    icon: {fileID: 21300000, guid: a850d556a63105b449d823ef5caca7e3, type: 2}
+    description: KillSteal (Capped at 5HP)
+    consumableDescription:
+  - statType: 2
+    icon: {fileID: 21300000, guid: 4d2ead9ca1b9fae4e86adfee8a5942c8, type: 2}
+    description: Base special attack damage
+    consumableDescription:
+  - statType: 17
+    icon: {fileID: 21300000, guid: aa48a2a10d032884a9e3b8b271752bd6, type: 2}
+    description: 'Thorns damage '
+    consumableDescription:
+  - statType: 15
+    icon: {fileID: 21300000, guid: 736997b18ebcd084f969ea42537bcb89, type: 2}
+    description: Heat cooldown speed
+    consumableDescription:
+  - statType: 18
+    icon: {fileID: 21300000, guid: 2bfd011af14503645b81180849fa6aa6, type: 2}
+    description: Health regeneration
+    consumableDescription: Health regeneration
+  - statType: 19
+    icon: {fileID: 21300000, guid: c141c9ee433495a4daeea8958766baa0, type: 2}
+    description: Crit Chance
+    consumableDescription: Crit Chance
+  oneHandedIcon: {fileID: 21300000, guid: ba1d40222b0e98c43a5061d23ea03644, type: 2}
+  twoHandedIcon: {fileID: 21300000, guid: d0bf09eb59ce7bf4f99a52b2a4cb9666, type: 2}
+  weaponTypeIcons:
+  - weaponType: 0
+    icon: {fileID: 21300000, guid: 5eea7be38b0f9474fb38fee18cf28cdb, type: 2}
+  - weaponType: 1
+    icon: {fileID: 21300000, guid: b9c5467543db34c4390a2e166890333a, type: 2}
+  - weaponType: 2
+    icon: {fileID: 21300000, guid: 5eb758a83cdd54e47903bad1c73196b8, type: 2}
+  - weaponType: 8
+    icon: {fileID: 21300000, guid: 4e97eb5e73d558048be6102b55f41525, type: 2}
+  - weaponType: 3
+    icon: {fileID: 21300000, guid: 7d665e63ad4b00e4c8a2459d0a0f6c23, type: 2}
+  - weaponType: 4
+    icon: {fileID: 21300000, guid: 3eca4741c87db984db89e9d1a877cc2d, type: 2}
+  - weaponType: 6
+    icon: {fileID: 21300000, guid: 602019e37686a514e812c48f75dbe311, type: 2}
+  - weaponType: 7
+    icon: {fileID: 21300000, guid: c33785065e387fe49b1491ab18966aa1, type: 2}
+  - weaponType: 10
+    icon: {fileID: 21300000, guid: a1b83c712efe7244cbf86bce0ef60521, type: 2}
+  - weaponType: 10
+    icon: {fileID: 21300000, guid: a1b83c712efe7244cbf86bce0ef60521, type: 2}
+  - weaponType: 12
+    icon: {fileID: 21300000, guid: 6eff39bcebc796e4088f546028a78b2a, type: 2}

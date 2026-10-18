@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: Hunting Bow
+  m_EditorClassIdentifier:
+  weaponName: Weapon
+  weaponType: 6
+  weaponIcon: {fileID: 21300000, guid: 97a2c53b11976b245b1b0bd1becb90e1, type: 2}
+  weaponAnimatorController: {fileID: 9100000, guid: 6bbc9a2f469330346ac63a80ad7a431a, type: 2}
+  damage: 10
+  attackSpeed: 1
+  range: 1
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 1
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 1
+  isMultiHit: 1
+  specialAttackIsMultiHit: 1
+  handSlot: 2
+  usesHeat: 1
+  heatPerShot: 15
+  heatMultiplier: 1
+  overheatsQuickly: 0
+  isProjectileWeapon: 1
+  projectileData: {fileID: 11400000, guid: fd48b493f2c618a4c80a3caa542a9f37, type: 2}
+  projectileCount: 1
+  projectileSpread: 0
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 1
+  specialProjectileData: {fileID: 11400000, guid: fd48b493f2c618a4c80a3caa542a9f37, type: 2}
+  specialProjectileCount: 3
+  specialProjectileSpread: 10
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 10
+  specialAttackHeatCost: 40
+  heatOnSpecialOnly: 0
+  swingSound: {fileID: 8300000, guid: 9ba8d54ed8312914c8ba2b85c2de2f67, type: 3}
+  hitSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 8300000, guid: 9ba8d54ed8312914c8ba2b85c2de2f67, type: 3}
+  twoHandedHitSound: {fileID: 0}
+  specialAttackSound: {fileID: 8300000, guid: 185714c326f8669428f2e81054444d6f, type: 3}
+  specialAttackHitSound: {fileID: 0}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

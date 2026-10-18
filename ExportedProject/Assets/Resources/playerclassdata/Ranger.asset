@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4098b13b8604c3569124692dabf29b5d, type: 3}
+  m_Name: Ranger
+  m_EditorClassIdentifier:
+  className: Ranger
+  classDescription: "A dead-eye ranger sporting a bow for hunting.\n(Kite and don't miss) "
+  classIcon: {fileID: 21300000, guid: 3d3b05a8ca7681546a8a8269096b9cce, type: 2}
+  startsLocked: 0
+  unlockConditionText:
+  healthMultiplier: 0.75
+  bonusHealth: 0
+  heatCapacityMultiplier: 1.25
+  bonusHeatCapacity: 0
+  movementSpeedMultiplier: 1
+  startingUpperArmor: {fileID: 11400000, guid: 717a98e38a842224bac9f4f4cb3899fb, type: 2}
+  startingLowerArmor: {fileID: 11400000, guid: 7c4f273b7a6a70745a4adf6b1c40bc01, type: 2}
+  startingLeftWeapon: {fileID: 0}
+  startingRightWeapon: {fileID: 11400000, guid: 82a7c91ad1bdc1b4b8ed8309c7f3228b, type: 2}
+  startingTrinket1: {fileID: 0}
+  startingTrinket2: {fileID: 0}
+  startingInventoryItems: []
+  unlockedRows: 0000000001000000

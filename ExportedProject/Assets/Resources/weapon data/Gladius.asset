@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: Gladius
+  m_EditorClassIdentifier:
+  weaponName: Gladius
+  weaponType: 1
+  weaponIcon: {fileID: 21300000, guid: 84b145b34a104c34591ace154f595661, type: 2}
+  weaponAnimatorController: {fileID: 9100000, guid: b9c2a615c71d9b741bd16dff54a385f8, type: 2}
+  damage: 12
+  attackSpeed: 1
+  range: 1.7
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 0
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 0
+  isMultiHit: 1
+  specialAttackIsMultiHit: 1
+  handSlot: 1
+  usesHeat: 0
+  heatPerShot: 5
+  heatMultiplier: 1
+  overheatsQuickly: 0
+  isProjectileWeapon: 0
+  projectileData: {fileID: 0}
+  projectileCount: 1
+  projectileSpread: 0
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 0
+  specialProjectileData: {fileID: 0}
+  specialProjectileCount: 1
+  specialProjectileSpread: 0
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 0
+  specialAttackHeatCost: 0
+  heatOnSpecialOnly: 0
+  swingSound: {fileID: 8300000, guid: 8a757e9fac3b38442aa1e5f61fc0d3eb, type: 3}
+  hitSound: {fileID: 8300000, guid: 1121c0f3cce2ad34b90b5c0dc64fb645, type: 3}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 0}
+  twoHandedHitSound: {fileID: 0}
+  specialAttackSound: {fileID: 0}
+  specialAttackHitSound: {fileID: 0}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

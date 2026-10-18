@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1031761965, guid: 4975435221300456099626b81431fe1f, type: 3}
+  m_Name: TagEffectsPreset
+  m_EditorClassIdentifier:
+  tagEffects:
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 52f950110ca3f12479ae3ab02ab4cc2d, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 21d4f96d33aaae24191857b0388e77d9, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: cf3754c8c38735647a319aff993e3cf4, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 727247056668832428ee645576b171a7, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: b9632652f7444844e89e367c0f8c533a, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 3be79e3df4670854388736ab26f6b62e, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 1571d9033993d9349b9f6c16dbae88c7, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 47316f911c0fb3e409af211b2965cdb5, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: ba0114381d674f144b451a296727c0f4, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: c133b245634a4a94b9016b60fb894d89, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 5472af23b264bb5418a4863d5894a726, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: d20041b4084824a4190a730379557e96, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 2adf3b0ba6b12804685d36972d8eb2b6, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 0aed8ec81d72a564b8f749bb8bd78d78, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 8e95ad8b571cf16408e8fe74baadd509, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 5472af23b264bb5418a4863d5894a726, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 6c6d7562c4913274997e784e4287a65f, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 166d75c7d85fbf040afdb9b2ad9ab8ff, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: b54bbd3129861a2408dfd1347d478dbd, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: cd6772df8a50b3e48bc4885df9d48930, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 773459195b2d286469de0d2d5bf020f0, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: aea6faa7218ce0047a90e863c57bb6aa, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 2c5d86463715e594f95c60d2ed004f7b, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: cc00be81eacfc974698a6ba80cdcb967, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 9dd3bc4df18cc54469d1a72b6f59afa1, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: c63cb7178ed83654290c41d262c1b626, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: df4e74627ff02734ba884affd6207fd2, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 8560f2d9ce5edd44ab9f4e309f00b76d, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 728b5f21e4a55964490115926a8be2f3, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 870171666c8533a49894be04db1e1c47, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: fd29479d43f6c234fb7a6ffb75d8d41c, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 504e605cc077ac14ab1ea5fa31c05dda, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: e730a4343a8c33f4ca09025196946526, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: d2c58b9610558cc47a1d09f1ff62674b, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 9baa6586bd3e61042aa86710edaf8401, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: bced76858042fb14580b0293df12b798, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: f4494b5da2cfd0149ac3cfd4b2ae769b, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 30afd1dbcce670c468629c7ae5a0fee6, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: 08a7e21f844ed6440ac205ebda8941b9, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - triggerWhen: 0
+    effect: {fileID: 11400000, guid: f27c8beab0d6660488731a182f3fa04b, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls: []

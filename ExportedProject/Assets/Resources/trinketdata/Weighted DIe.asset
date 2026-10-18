@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf95bd1f27f01a17053ba153f3247ef, type: 3}
+  m_Name: Weighted DIe
+  m_EditorClassIdentifier:
+  trinketName: Weighted DIe
+  description: A die that is NOT rigged to favor higher rolls. Seriously.
+  trinketIcon: {fileID: 21300000, guid: fc7620f09e2e091488894693fcdf36bf, type: 2}
+  effect: {fileID: 11400000, guid: 33e5f7b89e885fe42beea0ad4cd63376, type: 2}

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e29d6fda1dc27170851f71800de45fd, type: 3}
+  m_Name: FireBolt
+  m_EditorClassIdentifier:
+  projectileName: Projectile
+  projectilePrefab: {fileID: 1709254077376921, guid: a71af9c2a0e178248a7d35f3bef57cb5, type: 2}
+  speed: 20
+  maxLifetime: 5
+  maxRange: 50
+  useGravity: 0
+  gravityMultiplier: 1
+  isHoming: 0
+  homingStrength: 20
+  homingRange: 15
+  homingTargetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 0
+  impactRadius: 0
+  impactLayerMask:
+    serializedVersion: 2
+    m_Bits: 540929
+  piercing: 0
+  maxPierceTargets: 3
+  impactEffect: {fileID: 1709254077376921, guid: 37e106b3f995a874fb588be62066728a, type: 2}
+  trailEffect: {fileID: 0}
+  launchSound: {fileID: 0}
+  impactSound: {fileID: 8300000, guid: de67f0e0cedca5d4b926396fdc4b3835, type: 3}
+  faceMovementDirection: 1
+  rotationOffset: {x: 0, y: 0, z: 0}
+  bounces: 0
+  maxBounces: 3
+  bounceSpeedMultiplier: 0.8
+  explodeOnImpact: 1
+  explosionRadius: 5
+  explosionDamage: 20
+  scalesOverTime: 0
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 3, y: 3, z: 3}
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

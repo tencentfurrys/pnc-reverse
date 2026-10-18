@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: FireBoltTome
+  m_EditorClassIdentifier:
+  weaponName: Weapon
+  weaponType: 8
+  weaponIcon: {fileID: 0}
+  weaponAnimatorController: {fileID: 9100000, guid: 9a49ec330388b3744a05b84d1f2602b8, type: 2}
+  damage: 30
+  attackSpeed: 1
+  range: 1
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 2
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 0
+  isMultiHit: 1
+  specialAttackIsMultiHit: 1
+  handSlot: 1
+  usesHeat: 1
+  heatPerShot: 25
+  heatMultiplier: 1
+  overheatsQuickly: 0
+  isProjectileWeapon: 1
+  projectileData: {fileID: 11400000, guid: 2a0dcd32b0f94d445838353442425eda, type: 2}
+  projectileCount: 1
+  projectileSpread: 0
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 0
+  specialProjectileData: {fileID: 0}
+  specialProjectileCount: 1
+  specialProjectileSpread: 0
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 0
+  specialAttackHeatCost: 0
+  heatOnSpecialOnly: 0
+  swingSound: {fileID: 8300000, guid: ac2b4af0aa7e9bd45b43c4ad835800a4, type: 3}
+  hitSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 0}
+  twoHandedHitSound: {fileID: 0}
+  specialAttackSound: {fileID: 0}
+  specialAttackHitSound: {fileID: 0}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

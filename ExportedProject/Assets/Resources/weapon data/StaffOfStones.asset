@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: StaffOfStones
+  m_EditorClassIdentifier:
+  weaponName: StaffOfStones
+  weaponType: 7
+  weaponIcon: {fileID: 21300000, guid: 954a188193158754fab141fcacad9620, type: 2}
+  weaponAnimatorController: {fileID: 9100000, guid: 445095e08b6c2164889fc51f6cce14c6, type: 2}
+  damage: 5
+  attackSpeed: 1
+  range: 1
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 2
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 1
+  isMultiHit: 0
+  specialAttackIsMultiHit: 1
+  handSlot: 2
+  usesHeat: 1
+  heatPerShot: 3
+  heatMultiplier: 1
+  overheatsQuickly: 0
+  isProjectileWeapon: 1
+  projectileData: {fileID: 11400000, guid: 36a100cc4cb2fc54b8847b27966e886b, type: 2}
+  projectileCount: 5
+  projectileSpread: 25
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 1
+  specialProjectileData: {fileID: 11400000, guid: 596b7ce746c9f974daa5dcab38ff3a70, type: 2}
+  specialProjectileCount: 1
+  specialProjectileSpread: 0
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 40
+  specialAttackHeatCost: 25
+  heatOnSpecialOnly: 0
+  swingSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 8300000, guid: 86287b3c61f79e241b940561f16d1a59, type: 3}
+  twoHandedHitSound: {fileID: 8300000, guid: 11046ddd15a0b8249b7d3588aa424d04, type: 3}
+  specialAttackSound: {fileID: 8300000, guid: 972f5c8ec24222941a6326407f614148, type: 3}
+  specialAttackHitSound: {fileID: 8300000, guid: 7dac77e4c2a47af458fdf06e1def8ae9, type: 3}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

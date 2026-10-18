@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StaffOfStonesSpecialAttackLeft
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -3, y: 3, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 2.25
+        value: {x: -3, y: 3, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 1
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path:
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 1beebe02c3bbc45408cea822594f30f4, type: 2}
+    - time: 0.125
+      value: {fileID: 21300000, guid: c9b38e63c5b79f54b970674454a5e88e, type: 2}
+    - time: 0.25
+      value: {fileID: 21300000, guid: d129cac8b08aac0469447756e052e5c0, type: 2}
+    - time: 0.375
+      value: {fileID: 21300000, guid: 1696da7e073d01d43b51a0c0f878c246, type: 2}
+    - time: 0.5
+      value: {fileID: 21300000, guid: 526816a876ca2284da4d7560685e9730, type: 2}
+    - time: 0.625
+      value: {fileID: 21300000, guid: 4007e9f1caf47774ba8bbd53d08a92a1, type: 2}
+    - time: 0.75
+      value: {fileID: 21300000, guid: 14d7a0aa7086a6241852a08c9a539266, type: 2}
+    - time: 0.875
+      value: {fileID: 21300000, guid: 9c3b577e48d33a1448cc2e4b72df9681, type: 2}
+    - time: 1
+      value: {fileID: 21300000, guid: a89468218465cbe40b1b25d4f2213dcf, type: 2}
+    - time: 1.125
+      value: {fileID: 21300000, guid: 75e58b10b29780240a7cad747ba9bb6a, type: 2}
+    - time: 1.25
+      value: {fileID: 21300000, guid: 8c138bd63227afa4897ac973bf5a205c, type: 2}
+    - time: 1.375
+      value: {fileID: 21300000, guid: 6652187765b03a543b78438e988090e8, type: 2}
+    - time: 1.5
+      value: {fileID: 21300000, guid: 5dbd84836c6d6b74dacf58bf273f45d0, type: 2}
+    - time: 1.625
+      value: {fileID: 21300000, guid: 85358a2894947b94b92da68ff09404c7, type: 2}
+    - time: 1.75
+      value: {fileID: 21300000, guid: 9671a838f06bea94f86e223a7badb934, type: 2}
+    - time: 1.875
+      value: {fileID: 21300000, guid: 5aa5f98205b1f994098efd5b32920251, type: 2}
+    - time: 2
+      value: {fileID: 21300000, guid: 61d21d3906b09664cbf84c7a977fc8df, type: 2}
+    - time: 2.125
+      value: {fileID: 21300000, guid: 7c31a691498155243a49db979f356593, type: 2}
+    - time: 2.25
+      value: {fileID: 21300000, guid: 1e526ffa45a13af42b49a4ea3f6923d6, type: 2}
+    attribute: script_0x7822D856_UsmorHH
+    path:
+    classID: 114
+    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
+    flags: 2
+  m_SampleRate: 8
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 2015549526
+      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 1beebe02c3bbc45408cea822594f30f4, type: 2}
+    - {fileID: 21300000, guid: c9b38e63c5b79f54b970674454a5e88e, type: 2}
+    - {fileID: 21300000, guid: d129cac8b08aac0469447756e052e5c0, type: 2}
+    - {fileID: 21300000, guid: 1696da7e073d01d43b51a0c0f878c246, type: 2}
+    - {fileID: 21300000, guid: 526816a876ca2284da4d7560685e9730, type: 2}
+    - {fileID: 21300000, guid: 4007e9f1caf47774ba8bbd53d08a92a1, type: 2}
+    - {fileID: 21300000, guid: 14d7a0aa7086a6241852a08c9a539266, type: 2}
+    - {fileID: 21300000, guid: 9c3b577e48d33a1448cc2e4b72df9681, type: 2}
+    - {fileID: 21300000, guid: a89468218465cbe40b1b25d4f2213dcf, type: 2}
+    - {fileID: 21300000, guid: 75e58b10b29780240a7cad747ba9bb6a, type: 2}
+    - {fileID: 21300000, guid: 8c138bd63227afa4897ac973bf5a205c, type: 2}
+    - {fileID: 21300000, guid: 6652187765b03a543b78438e988090e8, type: 2}
+    - {fileID: 21300000, guid: 5dbd84836c6d6b74dacf58bf273f45d0, type: 2}
+    - {fileID: 21300000, guid: 85358a2894947b94b92da68ff09404c7, type: 2}
+    - {fileID: 21300000, guid: 9671a838f06bea94f86e223a7badb934, type: 2}
+    - {fileID: 21300000, guid: 5aa5f98205b1f994098efd5b32920251, type: 2}
+    - {fileID: 21300000, guid: 61d21d3906b09664cbf84c7a977fc8df, type: 2}
+    - {fileID: 21300000, guid: 7c31a691498155243a49db979f356593, type: 2}
+    - {fileID: 21300000, guid: 1e526ffa45a13af42b49a4ea3f6923d6, type: 2}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 2.375
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events:
+  - time: 0
+    functionName: OnBothHandsSpecialAttackStart
+    data:
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.625
+    functionName: OnBothHandsSpecialAttackHit
+    data:
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.25
+    functionName: OnBothHandsSpecialAttackEnd
+    data:
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

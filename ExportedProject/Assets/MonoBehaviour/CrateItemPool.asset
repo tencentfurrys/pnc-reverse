@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b921c6de17ed0490a2b2d4f5b046e23, type: 3}
+  m_Name: CrateItemPool
+  m_EditorClassIdentifier:
+  poolName: CrateItemPool
+  description: A collection of items that can spawn from Crates
+  commonItems:
+  - item: {fileID: 11400000, guid: 1b3d5ebc9317bb94fa3e0370afe5e198, type: 2}
+    weight: 50
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 41e38c7ef1ffcac46b843b0b5f8b6cfe, type: 2}
+    weight: 25
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  uncommonItems:
+  - item: {fileID: 11400000, guid: 9df92d0e542c9ad4cb67b0e17e14f31c, type: 2}
+    weight: 15
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 854702d529df3f7479f7358ec11525cb, type: 2}
+    weight: 15
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  rareItems:
+  - item: {fileID: 11400000, guid: 5212d7878ecc9c94db3e17d2da389889, type: 2}
+    weight: 10
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: a93ebe312344c184298988ac449c66f4, type: 2}
+    weight: 10
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  epicItems: []
+  legendaryItems: []
+  showStatistics: 1

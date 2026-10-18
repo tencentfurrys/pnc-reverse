@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b921c6de17ed0490a2b2d4f5b046e23, type: 3}
+  m_Name: ShopArmorLowerPool
+  m_EditorClassIdentifier:
+  poolName: Shop Lower Armor Pool
+  description: A pool that is used for lower armor only in the shops lower armor stand(s)
+  commonItems:
+  - item: {fileID: 11400000, guid: 671c6f759901d494892d22dd1af68be3, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 3fbe70349d8f1634fb1e9ce439edcfb6, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 6d495cf18870e2043b1ff7a107956d24, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 7c4f273b7a6a70745a4adf6b1c40bc01, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  - item: {fileID: 11400000, guid: 6466c426d238e7840b194652f9792c64, type: 2}
+    weight: 0.7
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  uncommonItems:
+  - item: {fileID: 11400000, guid: fa3f606a21995fb4e978f4fb49efa443, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 1
+  - item: {fileID: 11400000, guid: a9ac8dcb09124c640af3f890f1bec7c4, type: 2}
+    weight: 0.5
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 1
+  rareItems:
+  - item: {fileID: 11400000, guid: ed0d2f9f7ba0b1d41bdaceff8e5e9aa7, type: 2}
+    weight: 0.3
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  epicItems: []
+  legendaryItems:
+  - item: {fileID: 11400000, guid: 73c5f55302462e2489f20d48bfdabf1e, type: 2}
+    weight: 0.1
+    enabled: 1
+    overrideRarity: 0
+    customRarity: 0
+  showStatistics: 1

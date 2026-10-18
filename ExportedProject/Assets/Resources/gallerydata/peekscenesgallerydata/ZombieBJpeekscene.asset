@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a04ca4002f343e03b3ac5711839bb3, type: 3}
+  m_Name: ZombieBJpeekscene
+  m_EditorClassIdentifier:
+  enemyID: P7
+  alwaysUnlocked: 0
+  enemyName: Getting Brain
+  enemyDescription:
+  enemyIcon: {fileID: 21300000, guid: 651c19053f11ee942921ba7f3d6d87a5, type: 2}
+  animatorController: {fileID: 0}
+  availableAnimations: []
+  hasGrabScene: 1
+  grabAnimatorController: {fileID: 9100000, guid: 05c1db76a6288554195c9d652c6c3e37, type: 2}
+  grabAnimations:
+  - animationName: Loop
+    sound: {fileID: 8300000, guid: 6fa360b32ead6a141a8b8b8da534f875, type: 3}

@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: Shepherd's Sling
+  m_EditorClassIdentifier:
+  weaponName: Weapon
+  weaponType: 11
+  weaponIcon: {fileID: 21300000, guid: 65ba8ae2ad8c4ec4f85e92db38d4801b, type: 2}
+  weaponAnimatorController: {fileID: 9100000, guid: 46d144a1e578b334f98a6b25a3de2c0e, type: 2}
+  damage: 20
+  attackSpeed: 1
+  range: 1
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 1
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 0
+  isMultiHit: 0
+  specialAttackIsMultiHit: 0
+  handSlot: 1
+  usesHeat: 1
+  heatPerShot: 15
+  heatMultiplier: 1
+  overheatsQuickly: 0
+  isProjectileWeapon: 1
+  projectileData: {fileID: 11400000, guid: 4d3cf8fff87332443af70f50ab1a5b35, type: 2}
+  projectileCount: 1
+  projectileSpread: 0
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 0
+  specialProjectileData: {fileID: 0}
+  specialProjectileCount: 1
+  specialProjectileSpread: 0
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 0
+  specialAttackHeatCost: 0
+  heatOnSpecialOnly: 0
+  swingSound: {fileID: 8300000, guid: 4355067036efeee4a9d9a9e89c3cf9f0, type: 3}
+  hitSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 0}
+  twoHandedHitSound: {fileID: 0}
+  specialAttackSound: {fileID: 0}
+  specialAttackHitSound: {fileID: 0}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

@@ -1,0 +1,17 @@
+# Unity build caches (regenerable)
+ExportedProject/Library/
+ExportedProject/Temp/
+ExportedProject/Obj/
+ExportedProject/Logs/
+ExportedProject/obj/
+ExportedProject/Build/
+[Bb]uilds/
+*.apk
+
+# editor junk
+ExportedProject/.vs/
+ExportedProject/.idea/
+*.csproj.user
+*.suo
+"D:\Tools\pnc-rev"
+ExportedProject/Temp/

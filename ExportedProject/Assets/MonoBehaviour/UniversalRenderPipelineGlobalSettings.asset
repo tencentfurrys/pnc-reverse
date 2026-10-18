@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 474283971, guid: c88ab7b37c4f350242674d2efd621c19, type: 3}
+  m_Name: UniversalRenderPipelineGlobalSettings
+  m_EditorClassIdentifier:
+  m_ShaderStrippingSetting:
+    m_Version: 0
+    m_ExportShaderVariants: 1
+    m_ShaderVariantLogLevel: 0
+    m_StripRuntimeDebugShaders: 1
+  m_URPShaderStrippingSetting:
+    m_Version: 0
+    m_StripUnusedPostProcessingVariants: 0
+    m_StripUnusedVariants: 1
+    m_StripScreenCoordOverrideVariants: 1
+  m_ShaderVariantLogLevel: 0
+  m_ExportShaderVariants: 1
+  m_StripDebugVariants: 1
+  m_StripUnusedPostProcessingVariants: 0
+  m_StripUnusedVariants: 1
+  m_StripScreenCoordOverrideVariants: 1
+  supportRuntimeDebugDisplay: 0
+  m_EnableRenderGraph: 0
+  m_Settings:
+    m_RuntimeSettings:
+      m_List:
+      - rid: 4753341146362282371
+      - rid: 4753341146362282377
+      - rid: 4753341146362282378
+      - rid: 4753341146362282380
+      - rid: 4753341146362282381
+      - rid: 4753341146362282382
+      - rid: 4753341146362282383
+      - rid: 4753341146362282388
+      - rid: 4753341146362282389
+      - rid: 4753341146362282393
+      - rid: 4753341146362282394
+      - rid: 4753341146362282395
+      - rid: 5934236270811938817
+      - rid: 5934236270811938819
+  m_AssetVersion: 10
+  m_ObsoleteDefaultVolumeProfile: {fileID: 0}
+  m_RenderingLayerNames:
+  - Default
+  m_ValidRenderingLayers: 1
+  lightLayerName0:
+  lightLayerName1:
+  lightLayerName2:
+  lightLayerName3:
+  lightLayerName4:
+  lightLayerName5:
+  lightLayerName6:
+  lightLayerName7:
+  apvScenesData:
+    obsoleteSceneBounds:
+      m_Keys: []
+      m_Values: []
+    obsoleteHasProbeVolumes:
+      m_Keys: []
+      m_Values:
+  references:
+    version: 2
+    RefIds:
+    - rid: 4753341146362282371
+      type: {class: UniversalRendererResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_CopyDepthPS: {fileID: 4800000, guid: 31d4216601b72174fa97faf223aafaa2, type: 3}
+        m_CameraMotionVector: {fileID: 4800000, guid: 7602b548f8830b74f8a254a95ed8aa0f, type: 3}
+        m_StencilDeferredPS: {fileID: 4800000, guid: 89f6e24fe6eb44f4fa031e0f9378cad5, type: 3}
+        m_ClusterDeferred: {fileID: 4800000, guid: c50fe88d815e49448ae6272e723eab92, type: 3}
+        m_StencilDitherMaskSeedPS: {fileID: 4800000, guid: 2cb66ab2f92d93a43899167b43f92fa9, type: 3}
+        m_DBufferClear: {fileID: 4800000, guid: bed55c334ab60cd45a0b24b874404d0c, type: 3}
+    - rid: 4753341146362282377
+      type: {class: URPDefaultVolumeProfileSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_VolumeProfile: {fileID: 11400000, guid: 2f207ad5e0bdf2f47b3a90afde20306b, type: 2}
+    - rid: 4753341146362282378
+      type: {class: UniversalRenderPipelineRuntimeShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_FallbackErrorShader: {fileID: 4800000, guid: 8f7434bf17e2ed04495ebbae16a7693c, type: 3}
+        m_BlitHDROverlay: {fileID: 4800000, guid: c6182e164ce587a418b37d7fe794f56f, type: 3}
+        m_CoreBlitPS: {fileID: 4800000, guid: 309b6821320de5d498ee73722b5a5425, type: 3}
+        m_CoreBlitColorAndDepthPS: {fileID: 4800000, guid: bd48ccb63249e664e8930f148de0eaaa, type: 3}
+        m_SamplingPS: {fileID: 4800000, guid: 2e9a1b1c48a6feb48af6012f13e18afe, type: 3}
+        m_TerrainDetailLit: {fileID: 0}
+        m_TerrainDetailGrassBillboard: {fileID: 0}
+        m_TerrainDetailGrass: {fileID: 0}
+    - rid: 4753341146362282380
+      type: {class: UniversalRenderPipelineDebugShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_DebugReplacementPS: {fileID: 4800000, guid: 77b2ee529164a2b46ae55f8db08bae1d, type: 3}
+        m_HdrDebugViewPS: {fileID: 4800000, guid: 4a96de51bb8081c4ab3bde7de8e4da4a, type: 3}
+        m_ProbeVolumeSamplingDebugComputeShader: {fileID: 7200000, guid: cc75ffcfa55a1634d9c6e33afc8f4c64, type: 2}
+    - rid: 4753341146362282381
+      type: {class: UniversalRenderPipelineRuntimeTextures, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 1
+        m_BlueNoise64LTex: {fileID: 2800000, guid: b6f6ceccb252f72478cf4098306d5e52, type: 3}
+        m_BayerMatrixTex: {fileID: 2800000, guid: 85032cba0d3fa6844902a94df84d2337, type: 3}
+        m_DebugFontTex: {fileID: 2800000, guid: 03ddf66bc8d0a5d47a31845c6baf0928, type: 3}
+    - rid: 4753341146362282382
+      type: {class: RenderGraphSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_EnableRenderCompatibilityMode: 0
+    - rid: 4753341146362282383
+      type: {class: UniversalRenderPipelineRuntimeXRResources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_xrOcclusionMeshPS: {fileID: 4800000, guid: 849c2ec6997719f4ab35352b693ecee3, type: 3}
+        m_xrMirrorViewPS: {fileID: 4800000, guid: e5d5d78bd68ec2a43b1e21aee0afb4fe, type: 3}
+        m_xrMotionVector: {fileID: 4800000, guid: a530364ecfb01c24985d27bb919c273d, type: 3}
+    - rid: 4753341146362282388
+      type: {class: RenderGraphGlobalSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_version: 0
+        m_EnableCompilationCaching: 1
+        m_EnableValidityChecks: 1
+    - rid: 4753341146362282389
+      type: {class: ShaderStrippingSetting, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 0
+        m_ExportShaderVariants: 1
+        m_ShaderVariantLogLevel: 0
+        m_StripRuntimeDebugShaders: 1
+    - rid: 4753341146362282393
+      type: {class: VrsRenderPipelineRuntimeResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_TextureComputeShader: {fileID: 7200000, guid: 048b665fb3eee9f48b578f9282c4805d, type: 2}
+        m_VisualizationShader: {fileID: 4800000, guid: 2fca6b5e0d77178499e07bdc5804002e, type: 3}
+        m_VisualizationLookupTable:
+          m_Data:
+          - {r: 1, g: 0, b: 0, a: 1}
+          - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+          - {r: 1, g: 1, b: 1, a: 1}
+          - {r: 0, g: 1, b: 0, a: 1}
+          - {r: 0.75, g: 0.75, b: 0, a: 1}
+          - {r: 0, g: 0.75, b: 0.55, a: 1}
+          - {r: 0.5, g: 0, b: 0.5, a: 1}
+          - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+          - {r: 0, g: 0, b: 1, a: 1}
+        m_ConversionLookupTable:
+          m_Data:
+          - {r: 1, g: 0, b: 0, a: 1}
+          - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+          - {r: 1, g: 1, b: 1, a: 1}
+          - {r: 0, g: 1, b: 0, a: 1}
+          - {r: 0.75, g: 0.75, b: 0, a: 1}
+          - {r: 0, g: 0.75, b: 0.55, a: 1}
+          - {r: 0.5, g: 0, b: 0.5, a: 1}
+          - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+          - {r: 0, g: 0, b: 1, a: 1}
+    - rid: 4753341146362282394
+      type: {class: RenderGraphUtilsResources, ns: UnityEngine.Rendering.RenderGraphModule.Util, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 0
+        m_CoreCopyPS: {fileID: 4800000, guid: 477afb580e4a3b94aae6c8a76c73b533, type: 3}
+    - rid: 4753341146362282395
+      type: {class: LightmapSamplingSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_Version: 1
+        m_UseBicubicLightmapSampling: 0
+    - rid: 5934236270811938817
+      type: {class: UniversalRenderPipelineRuntimeTerrainShaders, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        m_Version: 0
+        m_TerrainDetailLit: {fileID: 4800000, guid: 7d571d3577884de42a88de8bb3421f36, type: 3}
+        m_TerrainDetailGrassBillboard: {fileID: 4800000, guid: 8c6ee3f95a55ffb43b7875adc2e9835d, type: 3}
+        m_TerrainDetailGrass: {fileID: 4800000, guid: a8cc2a97afd3f2b409154ca0dcb34241, type: 3}
+    - rid: 5934236270811938819
+      type: {class: URPReflectionProbeSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Universal.Runtime}
+      data:
+        version: 1
+        useReflectionProbeRotation: 0

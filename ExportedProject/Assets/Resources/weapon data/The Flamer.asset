@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a604afcd201af32e7e2111ab1c02d80, type: 3}
+  m_Name: The Flamer
+  m_EditorClassIdentifier:
+  weaponName: The Flamer
+  weaponType: 1
+  weaponIcon: {fileID: 0}
+  weaponAnimatorController: {fileID: 9100000, guid: 8b4f026ecd771b54688d8d942d26c631, type: 2}
+  damage: 30
+  attackSpeed: 40
+  range: 3
+  criticalChance: 0.1
+  criticalMultiplier: 2
+  attackType: 0
+  canBlock: 0
+  blockReduction: 0.5
+  twoHanded: 1
+  isMultiHit: 1
+  specialAttackIsMultiHit: 1
+  handSlot: 2
+  usesHeat: 0
+  heatPerShot: 0
+  heatMultiplier: 0
+  overheatsQuickly: 0
+  isProjectileWeapon: 0
+  projectileData: {fileID: 0}
+  projectileCount: 1
+  projectileSpread: 0
+  leftHandFirePoint: {fileID: 0}
+  rightHandFirePoint: {fileID: 0}
+  specialAttackUsesProjectiles: 1
+  specialProjectileData: {fileID: 11400000, guid: 271b1b1f5bf994f4fa946ac6dc613f47, type: 2}
+  specialProjectileCount: 5
+  specialProjectileSpread: 20
+  usesAttackStages: 0
+  attackStages: []
+  specialAttackDamage: 0
+  specialAttackHeatCost: 40
+  heatOnSpecialOnly: 1
+  swingSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  blockSound: {fileID: 0}
+  overheatedSound: {fileID: 0}
+  twoHandedSwingSound: {fileID: 8300000, guid: a2f77da42b2192e4682a902b73ca06aa, type: 3}
+  twoHandedHitSound: {fileID: 8300000, guid: 3c944bf4ef7cdf64799de540377d73db, type: 3}
+  specialAttackSound: {fileID: 8300000, guid: e3b913399b1d2ed45aa2c6870c17a0ad, type: 3}
+  specialAttackHitSound: {fileID: 0}
+  hitEffect2D: {fileID: 0}
+  attackEffectSprites: []
+  muzzleEffect: {fileID: 0}
+  showValidationWarnings: 1

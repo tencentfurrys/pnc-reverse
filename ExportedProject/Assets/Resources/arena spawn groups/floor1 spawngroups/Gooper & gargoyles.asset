@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee63b45a43d29859cfe69f413a9d54ce, type: 3}
+  m_Name: Gooper & gargoyles
+  m_EditorClassIdentifier:
+  groupName:
+  entries:
+  - enemy: {fileID: 11400000, guid: 33b44d9832c830244ba21c3607d757e7, type: 2}
+    spawnPointId: 1
+    prefabOverride: {fileID: 0}
+  - enemy: {fileID: 11400000, guid: 33b44d9832c830244ba21c3607d757e7, type: 2}
+    spawnPointId: 3
+    prefabOverride: {fileID: 0}
+  - enemy: {fileID: 11400000, guid: f864bcfa0ae82224e888a9e39a9f1a6b, type: 2}
+    spawnPointId: 7
+    prefabOverride: {fileID: 0}
+  - enemy: {fileID: 11400000, guid: f864bcfa0ae82224e888a9e39a9f1a6b, type: 2}
+    spawnPointId: 9
+    prefabOverride: {fileID: 0}
+  arenaMusic: {fileID: 0}
+  exitSting: {fileID: 0}

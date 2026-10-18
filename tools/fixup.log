@@ -1,0 +1,9 @@
+﻿2026-10-18T04:25:44.8509956+00:00 === fixup start ===
+2026-10-18T04:25:44.9841052+00:00 whoami: runnervm0xl3a\rdp ; elevated: True
+2026-10-18T04:25:44.9851059+00:00 removing D:\Unity\Hub\Editor\6000.3.11f1 ...
+2026-10-18T04:25:55.8100748+00:00 exists after delete: False
+2026-10-18T04:25:55.8111318+00:00 running installer: D:\Unity\installers\UnitySetup64-6000.3.11f1.exe /S /D=D:\Unity\Hub\Editor\6000.3.11f1
+2026-10-18T04:30:24.6740305+00:00 installer exit code: 0
+2026-10-18T04:30:24.6760307+00:00 Unity.exe at expected path: True
+2026-10-18T04:30:24.7208806+00:00 top-level of 6000.3.11f1: Editor
+2026-10-18T04:30:24.7218829+00:00 === fixup end ===

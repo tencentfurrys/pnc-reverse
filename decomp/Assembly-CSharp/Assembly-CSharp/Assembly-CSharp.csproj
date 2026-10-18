@@ -1,0 +1,94 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="AstarPathfindingProject">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\AstarPathfindingProject.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="DunGen">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\DunGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyTextEffects">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\EasyTextEffects.dll</HintPath>
+    </Reference>
+    <Reference Include="FronkonGames.Retro.NTSC">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\FronkonGames.Retro.NTSC.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>..\..\PNC 0.3.1 Win\Post Nut Calamity_Data\Managed\Unity.Burst.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

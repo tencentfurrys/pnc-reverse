@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1869055635, guid: a4cb41a224e9630af829992d2f806637, type: 3}
+  m_Name: Floor1Shop
+  m_EditorClassIdentifier:
+  globalPropGroupID_obsolete:
+  globalPropRanges_obsolete: []
+  Length:
+    Min: 2
+    Max: 2
+  BranchMode: 0
+  BranchCount:
+    Min: 1
+    Max: 5
+  GlobalProps: []
+  KeyManager: {fileID: 0}
+  DoorwayConnectionChance: 0
+  RestrictConnectionToSameSection: 0
+  TileInjectionRules: []
+  TileTagConnectionMode: 0
+  TileConnectionTags: []
+  DoorwayTagConnectionMode: 0
+  OverrideDoorwaySockets: 0
+  DoorwayConnectionTags: []
+  BranchTagPruneMode: 1
+  BranchPruneTags: []
+  GlobalStraighteningSettings:
+    OverrideStraightenChance: 0
+    StraightenChance: 0
+    OverrideCanStraightenMainPath: 0
+    CanStraightenMainPath: 1
+    OverrideCanStraightenBranchPaths: 0
+    CanStraightenBranchPaths: 0
+  CustomPipeline: {fileID: 0}
+  Nodes:
+  - Graph: {fileID: 11400000}
+    TileSets:
+    - {fileID: 11400000, guid: 0cbe3e973fa92f44ab128ceefcb1457f, type: 2}
+    NodeType: 1
+    Position: 0
+    Label: Start
+    Keys: []
+    Locks: []
+    LockPlacement: 0
+    StraighteningSettings:
+      OverrideStraightenChance: 0
+      StraightenChance: 0
+      OverrideCanStraightenMainPath: 0
+      CanStraightenMainPath: 1
+      OverrideCanStraightenBranchPaths: 0
+      CanStraightenBranchPaths: 0
+  - Graph: {fileID: 11400000}
+    TileSets:
+    - {fileID: 11400000, guid: 53f4e9dc2094d5b48b38e331a6ad8a8a, type: 2}
+    NodeType: 2
+    Position: 1
+    Label: Goal
+    Keys: []
+    Locks: []
+    LockPlacement: 0
+    StraighteningSettings:
+      OverrideStraightenChance: 0
+      StraightenChance: 0
+      OverrideCanStraightenMainPath: 0
+      CanStraightenMainPath: 1
+      OverrideCanStraightenBranchPaths: 0
+      CanStraightenBranchPaths: 0
+  - Graph: {fileID: 11400000}
+    TileSets:
+    - {fileID: 11400000, guid: 35d3995602517dd4b8912028128c4756, type: 2}
+    NodeType: 0
+    Position: 0.53333336
+    Label: Shop
+    Keys: []
+    Locks: []
+    LockPlacement: 0
+    StraighteningSettings:
+      OverrideStraightenChance: 0
+      StraightenChance: 0
+      OverrideCanStraightenMainPath: 0
+      CanStraightenMainPath: 1
+      OverrideCanStraightenBranchPaths: 0
+      CanStraightenBranchPaths: 0
+  Lines:
+  - Graph: {fileID: 11400000}
+    DungeonArchetypes:
+    - {fileID: 11400000, guid: 1a441af05e4a3f34cb8ff1746b845a1d, type: 2}
+    Position: 0
+    Length: 1
+    Keys: []
+    Locks: []
+  currentFileVersion: 1
