@@ -186,6 +186,16 @@ If you ever need to redo it: let ONE build boot with the file deleted, grab the 
    instance → stub moved out (2c).
 5. If the "COLLECT / comparing" crash returns with a DIFFERENT type pair, apply the same rule:
    find identical decompiled-byproduct types and remove them.
+6. *Gradle lintVital crash* — `Execution failed for task ':unityLibrary:lintVitalAnalyzeRelease'`
+   → `> For input string: "37.0"` (NumberFormatException inside AndroidLintWorkAction):
+   lint does `Integer.parseInt` on `AndroidVersion.ApiLevel=37.0`, the malformed string shipped by
+   the SDK archive `platform-37.0_r02.zip` (every other platform writes a plain int, e.g. `36`).
+   Fixed twice over: (a) elevated patch of
+   `AndroidPlayer\SDK\platforms\android-37\source.properties` → `AndroidVersion.ApiLevel=37`;
+   (b) custom gradle templates committed at `Assets\Plugins\Android\{mainTemplate,launcherTemplate}.gradle`
+   (copies of the shipped ones) with `lint { abortOnError false; checkReleaseBuilds false }` —
+   that removes the lintVital* tasks entirely. Note: `abortOnError false` alone does NOT survive
+   this — the crash happens inside the work action before lint reports anything.
 
 ---
 
