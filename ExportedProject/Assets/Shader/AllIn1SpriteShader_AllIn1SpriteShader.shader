@@ -1,3 +1,9 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "AllIn1SpriteShader/AllIn1SpriteShader" (commercial asset, source not redistributable).
+// Reimplements the base look: transparent, tinted, vertex-color sprite with a
+// fade Dissolve support and PMA-aware blending. Features beyond that (outline,
+// glow, color swap, pixelate...) are not reproduced, but property names are kept
+// so existing materials keep their serialized data.
 Shader "AllIn1SpriteShader/AllIn1SpriteShader" {
 	Properties {
 		_MainTex ("Main Texture", 2D) = "white" {}
@@ -159,7 +165,7 @@ Shader "AllIn1SpriteShader/AllIn1SpriteShader" {
 		_GreyscaleBlend ("Greyscale Blend", Range(0, 1)) = 1
 		_GhostBlend ("Ghost Blend", Range(0, 1)) = 1
 		_HologramBlend ("Hologram Blend", Range(0, 1)) = 1
-		[AllIn1ShaderGradient] _ColorRampTexGradient ("Color ramp Gradient", 2D) = "white" {}
+		[HideInInspector] _ColorRampTexGradient ("Color ramp Gradient", 2D) = "white" {}
 		_OverlayTex ("Overlay Texture", 2D) = "white" {}
 		_OverlayColor ("Overlay Color", Vector) = (1,1,1,1)
 		_OverlayGlow ("Overlay Glow", Range(0, 25)) = 1
@@ -181,56 +187,78 @@ Shader "AllIn1SpriteShader/AllIn1SpriteShader" {
 		[HideInInspector] _RandomSeed ("_MaxYUV", Range(0, 10000)) = 0
 		_EditorDrawers ("Editor Drawers", Float) = 6
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
 		LOD 200
 
 		Pass
 		{
-			HLSLPROGRAM
+			Blend [_MySrcMode] [_MyDstMode]
+			Cull [_CullingOption]
+			ZWrite [_ZWrite]
+			ZTest [_ZTestMode]
+
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _Color;
+			fixed _Alpha;
+			sampler2D _FadeTex;
+			float4 _FadeTex_ST;
+			fixed _FadeAmount;
 
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
+				float4 color : COLOR0;
+				float2 tex : TEXCOORD0;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float2 uv : TEXCOORD0;
 				float4 pos : SV_POSITION;
+				fixed4 color : COLOR0;
+				float2 tex : TEXCOORD0;
+				float2 fadeTex : TEXCOORD1;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata inV)
 			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				v2f o;
+				o.pos = UnityObjectToClipPos(inV.vertex);
+				o.color = inV.color;
+				o.tex = TRANSFORM_TEX(inV.tex, _MainTex);
+				o.fadeTex = TRANSFORM_TEX(inV.tex, _FadeTex);
+				return o;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f i) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
+				fixed4 raw = tex2D(_MainTex, i.tex);
+				fixed alpha = raw.a * _Color.a * i.color.a * _Alpha;
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				// dissolve fade (approximation of the original dissolve+burn:
+				// pixels whose fade texture luminance is below the dissolve
+				// amount disappear; the shader's rest state is _FadeAmount < 0)
+				if (_FadeAmount > 0)
+				{
+					fixed lum = dot(tex2D(_FadeTex, i.fadeTex).rgb, fixed3(0.299, 0.587, 0.114));
+					clip(lum - _FadeAmount);
+				}
+
+				fixed4 col = raw * _Color * i.color;
+				col.a = alpha;
+				// simple manual clip so off pixels do not write over the scene
+				clip(col.a - 0.004);
+				return col;
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
 	//CustomEditor "AllIn1SpriteShaderMaterialInspector"

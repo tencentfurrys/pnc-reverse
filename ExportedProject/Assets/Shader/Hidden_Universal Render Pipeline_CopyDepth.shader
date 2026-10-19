@@ -1,43 +1,27 @@
-Shader "Hidden/Universal Render Pipeline/CopyDepth" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/CopyDepth"
+{
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        Pass
+        {
+            Name "CopyDepth"
+            ZTest Always
+            ZWrite[_ZWrite]
+            ColorMask R
+            Cull Off
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment frag
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #pragma multi_compile _ _DEPTH_MSAA_2 _DEPTH_MSAA_4 _DEPTH_MSAA_8
+            #pragma multi_compile _ _OUTPUT_DEPTH
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/Utils/CopyDepthPass.hlsl"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
-
-			ENDHLSL
-		}
-	}
+            ENDHLSL
+        }
+    }
 }

@@ -1,0 +1,58 @@
+NO-MATCH | AllIn1SpriteShader/AllIn1SpriteShader | AllIn1SpriteShader_AllIn1SpriteShader.shader | size=11.3KB
+NO-MATCH | AllIn1SpriteShader/AllIn1SpriteShaderLit | AllIn1SpriteShader_AllIn1SpriteShaderLit.shader | size=11.8KB
+NO-MATCH | Hidden/ALINE/Font | aline_text.shader | size=1.5KB
+NO-MATCH | Hidden/ALINE/Outline | aline_outline.shader | size=0.9KB
+NO-MATCH | Hidden/ALINE/Surface | aline_surface.shader | size=1.2KB
+NO-MATCH | Hidden/Fronkon Games/Retro/NTSC URP | ntsc_urp.shader | size=1.1KB
+NO-MATCH | Hidden/ProBuilder/EdgePicker | Hidden_ProBuilder_EdgePicker.shader | size=0.8KB
+NO-MATCH | Hidden/ProBuilder/FacePicker | Hidden_ProBuilder_FacePicker.shader | size=0.8KB
+NO-MATCH | Hidden/ProBuilder/HideVertices | Hidden_ProBuilder_HideVertices.shader | size=0.8KB
+NO-MATCH | Hidden/ProBuilder/VertexPicker | Hidden_ProBuilder_VertexPicker.shader | size=0.8KB
+NO-MATCH | ProBuilder6/Standard Vertex Color | ProBuilder6_Standard Vertex Color.shader | size=1.8KB
+NO-MATCH | Shader Graphs/FullScreen shader | Shader Graphs_FullScreen shader.shader | size=2.7KB
+NO-MATCH | Shader Graphs/shader_shadowDecal | Shader Graphs_shader_shadowDecal.shader | size=1.7KB
+REPLACED | Hidden/Core/FallbackError | Hidden_Core_FallbackError.shader
+REPLACED | Hidden/Core/VrsVisualization | Hidden_Core_VrsVisualization.shader
+REPLACED | Hidden/CoreSRP/CoreCopy | Hidden_CoreSRP_CoreCopy.shader
+REPLACED | Hidden/Shader Graph/FallbackError | Hidden_Shader Graph_FallbackError.shader
+REPLACED | Hidden/TerrainEngine/Details/UniversalPipeline/BillboardWavingDoublePass | Hidden_TerrainEngine_Details_UniversalPipeline_BillboardWavingDoublePass.shader
+REPLACED | Hidden/TerrainEngine/Details/UniversalPipeline/Vertexlit | Hidden_TerrainEngine_Details_UniversalPipeline_Vertexlit.shader
+REPLACED | Hidden/TerrainEngine/Details/UniversalPipeline/WavingDoublePass | Hidden_TerrainEngine_Details_UniversalPipeline_WavingDoublePass.shader
+REPLACED | Hidden/Universal Render Pipeline/Bloom | Hidden_Universal Render Pipeline_Bloom.shader
+REPLACED | Hidden/Universal Render Pipeline/BokehDepthOfField | Hidden_Universal Render Pipeline_BokehDepthOfField.shader
+REPLACED | Hidden/Universal Render Pipeline/CameraMotionBlur | Hidden_Universal Render Pipeline_CameraMotionBlur.shader
+REPLACED | Hidden/Universal Render Pipeline/CameraMotionVectors | Hidden_Universal Render Pipeline_CameraMotionVectors.shader
+REPLACED | Hidden/Universal Render Pipeline/ClusterDeferred | Hidden_Universal Render Pipeline_ClusterDeferred.shader
+REPLACED | Hidden/Universal Render Pipeline/CopyDepth | Hidden_Universal Render Pipeline_CopyDepth.shader
+REPLACED | Hidden/Universal Render Pipeline/DBufferClear | Hidden_Universal Render Pipeline_DBufferClear.shader
+REPLACED | Hidden/Universal Render Pipeline/Debug/DebugReplacement | Hidden_Universal Render Pipeline_Debug_DebugReplacement.shader
+REPLACED | Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling | Hidden_Universal Render Pipeline_Edge Adaptive Spatial Upsampling.shader
+REPLACED | Hidden/Universal Render Pipeline/FallbackError | Hidden_Universal Render Pipeline_FallbackError.shader
+REPLACED | Hidden/Universal Render Pipeline/FinalPost | Hidden_Universal Render Pipeline_FinalPost.shader
+REPLACED | Hidden/Universal Render Pipeline/GaussianDepthOfField | Hidden_Universal Render Pipeline_GaussianDepthOfField.shader
+REPLACED | Hidden/Universal Render Pipeline/LensFlareDataDriven | Hidden_Universal Render Pipeline_LensFlareDataDriven.shader
+REPLACED | Hidden/Universal Render Pipeline/LensFlareScreenSpace | Hidden_Universal Render Pipeline_LensFlareScreenSpace.shader
+REPLACED | Hidden/Universal Render Pipeline/LutBuilderHdr | Hidden_Universal Render Pipeline_LutBuilderHdr.shader
+REPLACED | Hidden/Universal Render Pipeline/LutBuilderLdr | Hidden_Universal Render Pipeline_LutBuilderLdr.shader
+REPLACED | Hidden/Universal Render Pipeline/PaniniProjection | Hidden_Universal Render Pipeline_PaniniProjection.shader
+REPLACED | Hidden/Universal Render Pipeline/Sampling | Hidden_Universal Render Pipeline_Sampling.shader
+REPLACED | Hidden/Universal Render Pipeline/Scaling Setup | Hidden_Universal Render Pipeline_Scaling Setup.shader
+REPLACED | Hidden/Universal Render Pipeline/StencilDeferred | Hidden_Universal Render Pipeline_StencilDeferred.shader
+REPLACED | Hidden/Universal Render Pipeline/StencilDitherMaskSeed | Hidden_Universal Render Pipeline_StencilDitherMaskSeed.shader
+REPLACED | Hidden/Universal Render Pipeline/Stop NaN | Hidden_Universal Render Pipeline_Stop NaN.shader
+REPLACED | Hidden/Universal Render Pipeline/SubpixelMorphologicalAntialiasing | Hidden_Universal Render Pipeline_SubpixelMorphologicalAntialiasing.shader
+REPLACED | Hidden/Universal Render Pipeline/TemporalAA | Hidden_Universal Render Pipeline_TemporalAA.shader
+REPLACED | Hidden/Universal Render Pipeline/UberPost | Hidden_Universal Render Pipeline_UberPost.shader
+REPLACED | Hidden/Universal Render Pipeline/XR/XRMirrorView | Hidden_Universal Render Pipeline_XR_XRMirrorView.shader
+REPLACED | Hidden/Universal Render Pipeline/XR/XRMotionVector | Hidden_Universal Render Pipeline_XR_XRMotionVector.shader
+REPLACED | Hidden/Universal Render Pipeline/XR/XROcclusionMesh | Hidden_Universal Render Pipeline_XR_XROcclusionMesh.shader
+REPLACED | Hidden/Universal/BlitHDROverlay | Hidden_Universal_BlitHDROverlay.shader
+REPLACED | Hidden/Universal/CoreBlit | Hidden_Universal_CoreBlit.shader
+REPLACED | Hidden/Universal/CoreBlitColorAndDepth | Hidden_Universal_CoreBlitColorAndDepth.shader
+REPLACED | Hidden/Universal/HDRDebugView | Hidden_Universal_HDRDebugView.shader
+REPLACED | TextMeshPro/Distance Field | TextMeshPro_Distance Field.shader
+REPLACED | TextMeshPro/Distance Field Overlay | TextMeshPro_Distance Field Overlay.shader
+REPLACED | TextMeshPro/Mobile/Distance Field | TextMeshPro_Mobile_Distance Field.shader
+REPLACED | TextMeshPro/Sprite | TextMeshPro_Sprite.shader
+REPLACED | Universal Render Pipeline/2D/Sprite-Unlit-Default | Universal Render Pipeline_2D_Sprite-Unlit-Default.shader
+REPLACED | Universal Render Pipeline/Lit | Universal Render Pipeline_Lit.shader

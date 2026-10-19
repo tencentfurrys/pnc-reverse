@@ -1,43 +1,46 @@
-Shader "Hidden/Core/VrsVisualization" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Core/VrsVisualization"
+{
+    SubShader
+    {
+        Pass
+        {
+            Name "VrsVisualization"
+            ZTest Always
+            ZWrite Off
+            Cull Off
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+            HLSLPROGRAM
+            //#pragma enable_d3d11_debug_symbols
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            #pragma exclude_renderers glcore gles3
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #pragma vertex Vert
+            #pragma fragment Fragment
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureXR.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            TYPED_TEXTURE2D(uint, _ShadingRateImage);
+            StructuredBuffer<float4> _VisualizationLut;
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            uniform float4 _VisualizationParams;
 
-			ENDHLSL
-		}
-	}
+            #define PixelToTileScale _VisualizationParams.xy
+
+            float4 Fragment(Varyings input) : SV_Target
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+                uint2 pixel = (uint2)(input.positionCS.xy * PixelToTileScale);
+                uint shadingRate = LOAD_TEXTURE2D_LOD(_ShadingRateImage, pixel, 0);
+
+                return _VisualizationLut[shadingRate];
+            }
+            ENDHLSL
+        }
+    }
+
+    Fallback Off
 }

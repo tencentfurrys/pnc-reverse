@@ -1,3 +1,7 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "Hidden/ALINE/Font" (Arsonade's ALINE debug-visual asset, used for volume
+// labels drawn in debug view). Text glyphs are transparent vertex-colored
+// quads sampling a font atlas; the stub body was opaque.
 Shader "Hidden/ALINE/Font" {
 	Properties {
 		_Color ("Main Color", Vector) = (1,1,1,0.5)
@@ -9,56 +13,61 @@ Shader "Hidden/ALINE/Font" {
 		_MipBias ("Mip Bias", Range(-2, 0)) = -1
 		_GammaCorrection ("Gamma Correction", Range(0, 2)) = 1
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+	// DummyShaderTextExporter replacement: transparent unlit, atlas sampled with
+	// alpha-based glyph mask and vertex color multiplier.
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" }
 		LOD 200
+		ZWrite Off
+		ZTest Always
+		Cull Off
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _Color;
 
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
+				float2 tex : TEXCOORD0;
+				float4 color : COLOR0;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float2 uv : TEXCOORD0;
 				float4 pos : SV_POSITION;
+				float2 tex : TEXCOORD0;
+				fixed4 color : COLOR0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata inV)
 			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				v2f o;
+				o.pos = UnityObjectToClipPos(inV.vertex);
+				o.tex = TRANSFORM_TEX(inV.tex, _MainTex);
+				o.color = inV.color * _Color;
+				return o;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f i) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				fixed4 tex = tex2D(_MainTex, i.tex);
+				fixed4 col = i.color;
+				// Glyphs encode coverage in the RGB channels of the atlas
+				col.rgb = lerp(col.rgb, col.rgb * tex.rgb, tex.a);
+				col.a *= tex.a;
+				return col;
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
 }

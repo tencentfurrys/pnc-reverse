@@ -1,3 +1,7 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "Hidden/ALINE/Surface" (Arsonade's ALINE debug-visual asset). Debug décals
+// quads drawn by ALINE additionally sample a texture; the stub body was opaque,
+// which corrupted the debug overlay into black fills.
 Shader "Hidden/ALINE/Surface" {
 	Properties {
 		_Color ("Main Color", Vector) = (1,1,1,0.5)
@@ -5,56 +9,55 @@ Shader "Hidden/ALINE/Surface" {
 		_Scale ("Scale", Float) = 1
 		_FadeColor ("Fade Color", Vector) = (1,1,1,0.3)
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+	// DummyShaderTextExporter replacement: transparent unlit textured & vertex-colored.
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" }
 		LOD 200
+		ZWrite Off
+		ZTest Always
+		Cull Off
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			fixed4 _Color;
 
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
+				float2 tex : TEXCOORD0;
+				float4 color : COLOR0;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float2 uv : TEXCOORD0;
 				float4 pos : SV_POSITION;
+				float2 tex : TEXCOORD0;
+				fixed4 color : COLOR0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata inV)
 			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				v2f o;
+				o.pos = UnityObjectToClipPos(inV.vertex);
+				o.tex = TRANSFORM_TEX(inV.tex, _MainTex);
+				o.color = inV.color * _Color;
+				return o;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f i) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				return tex2D(_MainTex, i.tex) * i.color;
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
 }

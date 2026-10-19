@@ -1,3 +1,18 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "Shader Graphs/FullScreen shader" (multi-ShaderGraph Fullscreen-target effect,
+// drawn by URP FullScreenPassRendererFeature instances: FullScreenShader_{Hurt,
+// Buffs, Overheated} renderer features at injection point 450, with
+// fetchColorBuffer = true and Color|Depth requirements).
+//
+// URP draws this as a procedural fullscreen triangle (DrawProcedural with an
+// identity matrix), so the vertex stage builds the triangle from SV_VertexID
+// exactly like the generated Fullscreen ShaderGraph code. The material drives
+// the blend/depth states through the serialized _Fullscreen_* floats, which are
+// preserved and applied in the pass header. The visual content is rebuilt as
+// the base look: a radial vignette mask in _Color (HDR), fading from the screen
+// edges with _Vingette_Power/_Vingette_Intensity and _Vingette_Alpha. The
+// optional noise/cells (_Voronoi*) "speed-lines" variant part is not
+// reproduced, but the property names are kept so materials keep their data.
 Shader "Shader Graphs/FullScreen shader" {
 	Properties {
 		[HDR] _Color ("Color", Vector) = (1,0,0,1)
@@ -24,42 +39,61 @@ Shader "Shader Graphs/FullScreen shader" {
 		[HideInInspector] [NoScaleOffset] unity_LightmapsInd ("unity_LightmapsInd", 2DArray) = "" {}
 		[HideInInspector] [NoScaleOffset] unity_ShadowMasks ("unity_ShadowMasks", 2DArray) = "" {}
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" "RenderPipeline"="UniversalPipeline" }
+		LOD 100
 
 		Pass
 		{
+			Name "FullScreenPass"
+
+			Cull Off
+			ZWrite [_Fullscreen_DepthWrite]
+			ZTest [_Fullscreen_DepthTest]
+			Blend [_Fullscreen_SrcColorBlend] [_Fullscreen_DstColorBlend], [_Fullscreen_SrcAlphaBlend] [_Fullscreen_DstAlphaBlend]
+			BlendOp [_Fullscreen_ColorBlendOperation], [_Fullscreen_AlphaBlendOperation]
+
 			HLSLPROGRAM
+			#pragma target 4.5
 			#pragma vertex vert
 			#pragma fragment frag
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			float4 _Color;
+			float _Vingette_Power;
+			float _Vingette_Intensity;
+			float _Vingette_Alpha;
 
-			struct Vertex_Stage_Input
+			struct VertInput
 			{
-				float4 pos : POSITION;
+				uint vertexID : SV_VertexID;
 			};
 
-			struct Vertex_Stage_Output
+			struct VertOutput
 			{
 				float4 pos : SV_POSITION;
+				float2 uv : TEXCOORD0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			// Same fullscreen triangle setup as URP's generated Fullscreen ShaderGraph:
+			// the fullscreen pass issues 3 procedural vertices with an identity matrix.
+			VertOutput vert(VertInput input)
 			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
+				VertOutput output;
+				float2 v = float2((input.vertexID << 1) & 2, input.vertexID & 2);
+				output.pos = float4(v * 2.0 - 1.0, 0.0, 1.0);
+				output.uv = v * 0.5 + 0.5;
 				return output;
 			}
 
-			float4 _Color;
-
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			float4 frag(VertOutput input) : SV_Target
 			{
-				return _Color; // RGBA
+				float2 centeredUV = (input.uv - 0.5) * 2.0;
+				// 0 at the screen center, ~1 at the borders (diagonal corners go to ~1.41)
+				float d = length(centeredUV);
+				float vignette = saturate(pow(saturate(d), _Vingette_Power) * _Vingette_Intensity);
+				float alpha = saturate(vignette * _Vingette_Alpha * _Color.a);
+				return float4(_Color.rgb, alpha);
 			}
 
 			ENDHLSL

@@ -1,43 +1,159 @@
-Shader "Hidden/Universal Render Pipeline/LensFlareScreenSpace" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/LensFlareScreenSpace"
+{
+    SubShader
+    {
+        Tags{ "RenderPipeline" = "UniversalPipeline" }
+        
+        Pass
+        {
+            Name "LensFlareScreenSpac Prefilter"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+            ZWrite Off
+            Cull Off
+            ZTest Always
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            HLSLPROGRAM
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment FragmentPrefilter
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            #define URP_LENS_FLARE_SCREEN_SPACE
 
-			ENDHLSL
-		}
-	}
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareScreenSpaceCommon.hlsl"
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "LensFlareScreenSpace Downsample"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment FragmentDownsample
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define URP_LENS_FLARE_SCREEN_SPACE
+
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareScreenSpaceCommon.hlsl"
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "LensFlareScreenSpace Upsample"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment FragmentUpsample
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define URP_LENS_FLARE_SCREEN_SPACE
+
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareScreenSpaceCommon.hlsl"
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "LensFlareScreenSpace Composition"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment FragmentComposition
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define URP_LENS_FLARE_SCREEN_SPACE
+
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareScreenSpaceCommon.hlsl"
+
+            ENDHLSL
+        }
+        
+        Pass
+        {
+            Name "LensFlareScreenSpace Write to BloomTexture"
+            Tags{ "LightMode" = "Forward"  "RenderQueue" = "Transparent" }
+            
+            Blend One One
+            BlendOp Add
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment FragmentWrite
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define URP_LENS_FLARE_SCREEN_SPACE
+
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareScreenSpaceCommon.hlsl"
+
+            ENDHLSL
+        }
+
+    }
 }

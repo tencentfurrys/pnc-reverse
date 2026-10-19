@@ -1,3 +1,9 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "Hidden/ALINE/Outline" (Arsonade's ALINE debug-visual asset; the package's
+// editor sources are not shipped, so this is a minimal equivalent pass). ALINE
+// draws its line meshes as transparent vertex-colored geometry; the stub body
+// was opaque with no vertex color, which corrupted the debug overlay into a
+// black fill.
 Shader "Hidden/ALINE/Outline" {
 	Properties {
 		_Color ("Main Color", Vector) = (1,1,1,0.5)
@@ -5,45 +11,50 @@ Shader "Hidden/ALINE/Outline" {
 		_PixelWidth ("Width (px)", Float) = 4
 		_LengthPadding ("Length Padding (px)", Float) = 0
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+	// DummyShaderTextExporter replacement: transparent unlit vertex-colored lines.
+	SubShader
+	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" "PreviewType"="Plane" }
 		LOD 200
+		ZWrite Off
+		ZTest Always
+		Cull Off
 
 		Pass
 		{
-			HLSLPROGRAM
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+			fixed4 _Color;
 
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
+				float4 vertex : POSITION;
+				float4 color : COLOR0;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
 				float4 pos : SV_POSITION;
+				fixed4 color : COLOR0;
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata inV)
 			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				v2f o;
+				o.pos = UnityObjectToClipPos(inV.vertex);
+				o.color = inV.color * _Color;
+				return o;
 			}
 
-			float4 _Color;
-
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
+			fixed4 frag(v2f i) : SV_Target
 			{
-				return _Color; // RGBA
+				return i.color;
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
 }

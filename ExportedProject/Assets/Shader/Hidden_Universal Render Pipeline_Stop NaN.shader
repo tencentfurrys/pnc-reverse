@@ -1,43 +1,41 @@
-Shader "Hidden/Universal Render Pipeline/Stop NaN" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/Stop NaN"
+{
+    HLSLINCLUDE
+        #pragma target 3.5
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+        #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+        #define NAN_COLOR half4(0.0, 0.0, 0.0, 0.0)
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+        half4 FragStopNaN(Varyings input) : SV_Target
+        {
+            UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+            float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
+            half4 color = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_PointClamp, uv);
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            if (AnyIsNaN(color) || AnyIsInf(color))
+                color = NAN_COLOR;
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            return color;
+        }
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+    ENDHLSL
 
-			ENDHLSL
-		}
-	}
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
+        LOD 100
+        ZTest Always ZWrite Off Cull Off
+
+        Pass
+        {
+            Name "Stop NaN"
+
+            HLSLPROGRAM
+                #pragma vertex Vert
+                #pragma fragment FragStopNaN
+            ENDHLSL
+        }
+    }
 }

@@ -1,3 +1,8 @@
+// Replacement for the AssetRipper DummyShaderTextExporter stub of
+// "ProBuilder6/Standard Vertex Color" (ProBuilder's runtime shader; used by
+// Resources/materials/ProBuilderDefault.mat on blockout meshes). Recreates the
+// original look: opaque unlit surface multiplied by the texture and the vertex
+// colors baked on the ProBuilder mesh.
 Shader "ProBuilder6/Standard Vertex Color" {
 	Properties {
 		[NoScaleOffset] _MainTex ("Albedo", 2D) = "white" {}
@@ -10,56 +15,62 @@ Shader "ProBuilder6/Standard Vertex Color" {
 		[HideInInspector] _BUILTIN_QueueOffset ("Float", Float) = 0
 		[HideInInspector] _BUILTIN_QueueControl ("Float", Float) = -1
 	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
+	// DummyShaderTextExporter replacement: opaque unlit, textured + vertex color.
+	SubShader
+	{
+		Tags { "Queue"="Geometry" "RenderType"="Opaque" "RenderPipeline"="UniversalPipeline" }
 		LOD 200
 
 		Pass
 		{
-			HLSLPROGRAM
+			Name "ProBuilderFallback"
+
+			Cull Back
+			ZWrite On
+			ZTest LEqual
+
+			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma multi_compile_fog
+			#include "UnityCG.cginc"
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
+			sampler2D _MainTex;
+			fixed4 _Color;
 
-			struct Vertex_Stage_Input
+			struct appdata
 			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
+				float4 vertex : POSITION;
+				float2 tex : TEXCOORD0;
+				float4 color : COLOR0;
 			};
 
-			struct Vertex_Stage_Output
+			struct v2f
 			{
-				float2 uv : TEXCOORD0;
 				float4 pos : SV_POSITION;
+				float2 tex : TEXCOORD0;
+				fixed4 color : COLOR0;
+				UNITY_FOG_COORDS(1)
 			};
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
+			v2f vert(appdata inV)
 			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
+				v2f o;
+				o.pos = UnityObjectToClipPos(inV.vertex);
+				o.tex = inV.tex;
+				o.color = inV.color * _Color;
+				UNITY_TRANSFER_FOG(o, o.pos);
+				return o;
 			}
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
-
-			struct Fragment_Stage_Input
+			fixed4 frag(v2f i) : SV_Target
 			{
-				float2 uv : TEXCOORD0;
-			};
-
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
+				fixed4 col = tex2D(_MainTex, i.tex) * i.color;
+				UNITY_APPLY_FOG(i.fogCoord, col);
+				return col;
 			}
 
-			ENDHLSL
+			ENDCG
 		}
 	}
 	Fallback "Hidden/Shader Graph/FallbackError"

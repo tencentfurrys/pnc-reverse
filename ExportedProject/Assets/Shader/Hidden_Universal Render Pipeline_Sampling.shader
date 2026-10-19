@@ -1,43 +1,45 @@
-Shader "Hidden/Universal Render Pipeline/Sampling" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/Sampling"
+{
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
+        LOD 100
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        // 0 - Downsample - Box filtering
+        Pass
+        {
+            Name "BoxDownsample"
+            ZTest Always
+            ZWrite Off
+            Cull Off
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment FragBoxDownsample
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            SAMPLER(sampler_BlitTexture);
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            float _SampleOffset;
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            half4 FragBoxDownsample(Varyings input) : SV_Target
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
-			ENDHLSL
-		}
-	}
+                float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
+                float4 d = _BlitTexture_TexelSize.xyxy * float4(-_SampleOffset, -_SampleOffset, _SampleOffset, _SampleOffset);
+
+                half4 s;
+                s =  SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, uv + d.xy);
+                s += SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, uv + d.zy);
+                s += SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, uv + d.xw);
+                s += SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, uv + d.zw);
+
+                return s * 0.25h;
+            }
+            ENDHLSL
+        }
+    }
 }

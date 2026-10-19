@@ -1,43 +1,120 @@
-Shader "Hidden/Universal Render Pipeline/TemporalAA" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/TemporalAA"
+{
+    HLSLINCLUDE
+        #pragma exclude_renderers gles
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        #pragma multi_compile_fragment _ _ENABLE_ALPHA_OUTPUT
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+        #pragma vertex Vert
+        #pragma fragment TaaFrag
+    ENDHLSL
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
+        LOD 100
+        ZTest Always ZWrite Off Blend Off Cull Off
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+        Pass
+        {
+            Name "TemporalAA - Accumulate - Quality Very Low"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            HLSLPROGRAM
+                // User RGB color space for better perf. on low-end devices.
+                #define TAA_YCOCG 0
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    return DoTemporalAA(input, 0, 0, 0, 0);
+                }
 
-			ENDHLSL
-		}
-	}
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "TemporalAA - Accumulate - Quality Low"
+
+            HLSLPROGRAM
+                // User RGB color space for better perf.
+                #define TAA_YCOCG 0
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
+
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    return DoTemporalAA(input, 0, 1, 1, 0);
+                }
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "TemporalAA - Accumulate - Quality Medium"
+
+            HLSLPROGRAM
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
+
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    return DoTemporalAA(input, 2, 2, 1, 0);
+                }
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "TemporalAA - Accumulate - Quality High"
+
+            HLSLPROGRAM
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
+
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    return DoTemporalAA(input, 2, 2, 2, 0);
+                }
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "TemporalAA - Accumulate - Quality Very High"
+
+            HLSLPROGRAM
+                #pragma multi_compile_fragment _ TAA_LOW_PRECISION_SOURCE
+
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
+
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    #ifdef TAA_LOW_PRECISION_SOURCE
+                        // Use clamp instead of clip with low precision color sources to avoid flicker.
+                        return DoTemporalAA(input, 2, 2, 2, 1);
+                    #else
+                        return DoTemporalAA(input, 3, 2, 2, 1);
+                    #endif
+                }
+
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "TemporalAA - Copy History"
+
+            HLSLPROGRAM
+
+                #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/TemporalAA.hlsl"
+
+                half4 TaaFrag(Varyings input) : SV_Target
+                {
+                    return DoCopy(input);
+                }
+
+            ENDHLSL
+        }
+    }
 }

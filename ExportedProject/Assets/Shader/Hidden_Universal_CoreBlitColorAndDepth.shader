@@ -1,43 +1,53 @@
-Shader "Hidden/Universal/CoreBlitColorAndDepth" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal/CoreBlitColorAndDepth"
+{
+    HLSLINCLUDE
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        #pragma target 2.0
+        #pragma editor_sync_compilation
+        // Core.hlsl for XR dependencies
+        #include_with_pragmas "Packages/com.unity.render-pipelines.core/Runtime/Utilities/BlitColorAndDepth.hlsl"
+    ENDHLSL
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+    SubShader
+    {
+        Tags{ "RenderPipeline" = "UniversalPipeline" }
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+        // 0: Color Only
+        Pass
+        {
+            ZWrite Off ZTest Always Blend Off Cull Off
+            Name "ColorOnly"
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            HLSLPROGRAM
+                #pragma vertex Vert
+                #pragma fragment FragColorOnly
+            ENDHLSL
+        }
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+        // 1:  Color Only and Depth
+        Pass
+        {
+            ZWrite On ZTest Always Blend Off Cull Off
+            Name "ColorAndDepth"
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            HLSLPROGRAM
+                #pragma vertex Vert
+                #pragma fragment FragColorAndDepth
+            ENDHLSL
+        }
 
-			ENDHLSL
-		}
-	}
+        // 2:  Depth Only
+        Pass
+        {
+            ZWrite On ZTest Always Blend Off Cull Off ColorMask 0
+            Name "DepthOnly"
+
+            HLSLPROGRAM
+                #pragma vertex Vert
+                #pragma fragment FragDepthOnly
+            ENDHLSL
+        }
+    }
+
+    Fallback Off
 }

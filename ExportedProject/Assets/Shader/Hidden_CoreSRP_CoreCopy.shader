@@ -1,43 +1,98 @@
-Shader "Hidden/CoreSRP/CoreCopy" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/CoreSRP/CoreCopy"
+{
+    SubShader
+    {
+        HLSLINCLUDE
+        #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+        #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl"
+        #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureXR.hlsl"
+        #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/UnityInstancing.hlsl"
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        #pragma vertex Vert
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+        struct Attributes
+        {
+            uint vertexID : SV_VertexID;
+            UNITY_VERTEX_INPUT_INSTANCE_ID
+        };
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+        struct Varyings
+        {
+            float4 positionCS : SV_POSITION;
+            UNITY_VERTEX_OUTPUT_STEREO
+        };
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+        Varyings Vert(Attributes input)
+        {
+            Varyings output;
+            UNITY_SETUP_INSTANCE_ID(input);
+            UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            output.positionCS = GetFullScreenTriangleVertexPosition(input.vertexID);
+            return output;
+        }
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+        ENDHLSL
 
-			ENDHLSL
-		}
-	}
+        Pass
+        {
+            Name "Copy"
+            ZClip Off
+            ZTest Off
+            ZWrite Off
+            Cull Off
+
+            HLSLPROGRAM
+            #pragma multi_compile_fragment _ DISABLE_TEXTURE2D_X_ARRAY
+            #pragma fragment CopyFrag
+
+            // Declares the framebuffer input as a texture 2d containing half.
+            FRAMEBUFFER_INPUT_X_FLOAT(0);
+
+            // Out frag function takes as input a struct that contains the screen space coordinate we are going to use to sample our texture. It also writes to SV_Target0, this has to match the index set in the UseTextureFragment(sourceTexture, 0, …) we defined in our render pass script.
+            float4 CopyFrag(Varyings input) : SV_Target0
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+                // read previous subpasses directly from the framebuffer.
+                half4 color = LOAD_FRAMEBUFFER_INPUT_X(0, input.positionCS.xy);
+
+                // Modify the sampled color
+                return color;
+            }
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "CopyMS"
+            ZClip Off
+            ZTest Off
+            ZWrite Off
+            Cull Off
+
+            HLSLPROGRAM
+            #pragma multi_compile_fragment _ DISABLE_TEXTURE2D_X_ARRAY
+            #pragma fragment CopyFragMS
+            #pragma target 4.5
+            #pragma require msaatex
+
+            // Declares the framebuffer input as a texture 2d containing half.
+            FRAMEBUFFER_INPUT_X_FLOAT_MS(0);
+
+            // Out frag function takes as input a struct that contains the screen space coordinate we are going to use to sample our texture. It also writes to SV_Target0, this has to match the index set in the UseTextureFragment(sourceTexture, 0, …) we defined in our render pass script.
+            float4 CopyFragMS(Varyings input, uint sampleID : SV_SampleIndex) : SV_Target0
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+                // read previous subpasses directly from the framebuffer.
+                half4 color = LOAD_FRAMEBUFFER_INPUT_X_MS(0, sampleID, input.positionCS.xy);
+
+                // Modify the sampled color
+                return color;
+            }
+            ENDHLSL
+        }
+    }
 }
+

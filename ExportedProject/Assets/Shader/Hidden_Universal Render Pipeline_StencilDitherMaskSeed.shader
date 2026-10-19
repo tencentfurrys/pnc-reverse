@@ -1,45 +1,61 @@
-Shader "Hidden/Universal Render Pipeline/StencilDitherMaskSeed" {
-	Properties {
-		_StencilRefDitherMask ("StencilRefDitherMask", Float) = 0
-		_StencilWriteDitherMask ("StencilWriteDitherMask", Float) = 0
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/StencilDitherMaskSeed"
+{
+    Properties
+    {
+        _StencilRefDitherMask ("StencilRefDitherMask", Int) = 0
+        _StencilWriteDitherMask ("StencilWriteDitherMask", Int) = 0
+    }
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+        Pass
+        {
+            Name "StencilDitherMaskSeed"
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            // -------------------------------------
+            // Render State Commands
+            ZWrite Off
+            ZTest Always
+            Blend Off
+            Cull Off
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            // -------------------------------------
+            // Stencil Settings
+            Stencil
+            {
+                Ref [_StencilRefDitherMask]
+                WriteMask [_StencilWriteDitherMask]
+                CompFront Always
+                PassFront Replace
+                PassBack Replace
+            }
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            HLSLPROGRAM
+            #pragma target 4.5
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            // -------------------------------------
+            // Shader Stages
+            #pragma vertex Vert
+            #pragma fragment Pixel
 
-			ENDHLSL
-		}
-	}
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
+
+            uint _StencilDitherPattern;
+
+            void Pixel(Varyings input)
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+
+                uint a = (uint)input.positionCS.x & 0x1;
+                uint b = (((uint)input.positionCS.y & 0x1) ^ a) << 1;
+                if ((a + b) != _StencilDitherPattern)
+                    discard;
+            }
+
+            ENDHLSL
+        }
+    }
 }

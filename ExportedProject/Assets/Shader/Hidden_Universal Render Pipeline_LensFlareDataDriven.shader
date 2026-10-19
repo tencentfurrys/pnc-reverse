@@ -1,43 +1,180 @@
-Shader "Hidden/Universal Render Pipeline/LensFlareDataDriven" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/LensFlareDataDriven"
+{
+    SubShader
+    {
+        Tags{ "RenderPipeline" = "UniversalPipeline" }
+        
+        // Additive
+        Pass
+        {
+            Name "LensFlareAdditive"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+            Blend One One
+            ZWrite Off
+            Cull Off
+            ZTest Always
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            HLSLPROGRAM
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment frag
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            #pragma multi_compile_fragment _ FLARE_INVERSE_SDF
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            #pragma multi_compile_vertex _ FLARE_OPENGL3_OR_OPENGLCORE
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            #pragma multi_compile _ FLARE_HAS_OCCLUSION
 
-			ENDHLSL
-		}
-	}
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define FLARE_ADDITIVE_BLEND
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareCommon.hlsl"
+
+            ENDHLSL
+        }
+        // Screen
+        Pass
+        {
+            Name "LensFlareScreen"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            Blend One OneMinusSrcColor
+            BlendOp Max
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #pragma multi_compile_fragment _ FLARE_INVERSE_SDF
+
+            #pragma multi_compile_vertex _ FLARE_OPENGL3_OR_OPENGLCORE
+
+            #pragma multi_compile _ FLARE_HAS_OCCLUSION
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define FLARE_SCREEN_BLEND
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareCommon.hlsl"
+
+            ENDHLSL
+        }
+        // Premultiply
+        Pass
+        {
+            Name "LensFlarePremultiply"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            Blend One OneMinusSrcAlpha
+            ColorMask RGB
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #pragma multi_compile_fragment _ FLARE_INVERSE_SDF
+
+            #pragma multi_compile_vertex _ FLARE_OPENGL3_OR_OPENGLCORE
+
+            #pragma multi_compile _ FLARE_HAS_OCCLUSION
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define FLARE_PREMULTIPLIED_BLEND
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareCommon.hlsl"
+
+            ENDHLSL
+        }
+        // Lerp
+        Pass
+        {
+            Name "LensFlareLerp"
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            LOD 100
+
+            Blend SrcAlpha OneMinusSrcAlpha
+            ColorMask RGB
+            ZWrite Off
+            Cull Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #pragma multi_compile_fragment _ FLARE_INVERSE_SDF
+
+            #pragma multi_compile_vertex _ FLARE_OPENGL3_OR_OPENGLCORE
+
+            #pragma multi_compile _ FLARE_HAS_OCCLUSION
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/PostProcessing/Common.hlsl"
+
+            #define FLARE_LERP_BLEND
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareCommon.hlsl"
+
+            ENDHLSL
+        }
+        // OcclusionOnly
+        Pass
+        {
+            Name "LensFlareOcclusion"
+
+            Blend Off
+            Cull Off
+            ZWrite Off
+            ZTest Always
+
+            HLSLPROGRAM
+
+            #pragma target 3.0
+            #pragma vertex vertOcclusion
+            #pragma fragment fragOcclusion
+            #pragma exclude_renderers gles
+
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+
+            #define FLARE_COMPUTE_OCCLUSION
+            #include "Packages/com.unity.render-pipelines.core/Runtime/PostProcessing/Shaders/LensFlareCommon.hlsl"
+
+            ENDHLSL
+        }
+    }
 }

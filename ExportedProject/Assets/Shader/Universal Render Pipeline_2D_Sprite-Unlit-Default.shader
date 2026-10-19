@@ -1,63 +1,74 @@
-Shader "Universal Render Pipeline/2D/Sprite-Unlit-Default" {
-	Properties {
-		_MainTex ("Sprite Texture", 2D) = "white" {}
-		[MaterialToggle] _ZWrite ("ZWrite", Float) = 0
-		[HideInInspector] _Color ("Tint", Vector) = (1,1,1,1)
-		[HideInInspector] PixelSnap ("Pixel snap", Float) = 0
-		[HideInInspector] _RendererColor ("RendererColor", Vector) = (1,1,1,1)
-		[HideInInspector] _AlphaTex ("External Alpha", 2D) = "white" {}
-		[HideInInspector] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType"="Opaque" }
-		LOD 200
+Shader "Universal Render Pipeline/2D/Sprite-Unlit-Default"
+{
+    Properties
+    {
+        _MainTex ("Sprite Texture", 2D) = "white" {}
+        [MaterialToggle] _ZWrite("ZWrite", Float) = 0
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
+        [HideInInspector] _Color ("Tint", Color) = (1,1,1,1)
+        [HideInInspector] PixelSnap ("Pixel snap", Float) = 0
+        [HideInInspector] _RendererColor ("RendererColor", Color) = (1,1,1,1)
+        [HideInInspector] _AlphaTex ("External Alpha", 2D) = "white" {}
+        [HideInInspector] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
+    }
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
-			float4 _MainTex_ST;
+    SubShader
+    {
+        Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-			};
+        Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
+        Cull Off
+        ZWrite [_ZWrite]
 
-			struct Vertex_Stage_Output
-			{
-				float2 uv : TEXCOORD0;
-				float4 pos : SV_POSITION;
-			};
+        Pass
+        {
+            HLSLPROGRAM
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/Core2D.hlsl"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.uv = (input.uv.xy * _MainTex_ST.xy) + _MainTex_ST.zw;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            #pragma vertex UnlitVertex
+            #pragma fragment UnlitFragment
 
-			Texture2D<float4> _MainTex;
-			SamplerState sampler_MainTex;
-			float4 _Color;
+            struct Attributes
+            {
+                COMMON_2D_INPUTS
+                half4 color : COLOR;
+                UNITY_SKINNED_VERTEX_INPUTS
+            };
 
-			struct Fragment_Stage_Input
-			{
-				float2 uv : TEXCOORD0;
-			};
+            struct Varyings
+            {
+                COMMON_2D_OUTPUTS
+                half4 color : COLOR;
+            };
 
-			float4 frag(Fragment_Stage_Input input) : SV_TARGET
-			{
-				return _MainTex.Sample(sampler_MainTex, input.uv.xy) * _Color;
-			}
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/2DCommon.hlsl"
+          
+            // GPU Instancing
+            #pragma multi_compile_instancing
+            #pragma multi_compile _ DEBUG_DISPLAY SKINNED_SPRITE
 
-			ENDHLSL
-		}
-	}
+            // NOTE: Do not ifdef the properties here as SRP batcher can not handle different layouts.
+            CBUFFER_START(UnityPerMaterial)
+                half4 _Color;
+            CBUFFER_END
+
+            Varyings UnlitVertex(Attributes input)
+            {
+                UNITY_SKINNED_VERTEX_COMPUTE(input);
+                SetUpSpriteInstanceProperties();
+                input.positionOS = UnityFlipSprite(input.positionOS, unity_SpriteProps.xy);
+
+                Varyings o = CommonUnlitVertex(input);
+                o.color = input.color *_Color * unity_SpriteColor;
+                return o;
+            }
+
+            half4 UnlitFragment(Varyings input) : SV_Target
+            {
+                return CommonUnlitFragment(input, input.color);
+            }
+            ENDHLSL
+        }
+    }
 }

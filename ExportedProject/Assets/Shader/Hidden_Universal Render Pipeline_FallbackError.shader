@@ -1,44 +1,67 @@
-Shader "Hidden/Universal Render Pipeline/FallbackError" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/FallbackError"
+{
+    SubShader
+    {
+        Tags
+        {
+            "RenderType" = "Opaque"
+            "RenderPipeline" = "UniversalPipeline"
+            "IgnoreProjector" = "True"
+            "ShaderModel" = "4.5"
+        }
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma target 4.5
+            #pragma editor_sync_compilation
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            // -------------------------------------
+            // Shader Stages
+            #pragma vertex vert
+            #pragma fragment frag
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            // -------------------------------------
+            // Unity defined keywords
+            #pragma multi_compile _ STEREO_INSTANCING_ON STEREO_MULTIVIEW_ON
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            //--------------------------------------
+            // GPU Instancing
+            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DOTS.hlsl"
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
+            // -------------------------------------
+            // Includes
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Input.hlsl"
 
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
+            struct appdata_t
+            {
+                float4 vertex : POSITION;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
 
-			ENDHLSL
-		}
-	}
-	Fallback "Hidden/Core/FallbackError"
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+                UNITY_VERTEX_OUTPUT_STEREO
+            };
+
+            v2f vert (appdata_t v)
+            {
+                v2f o;
+                UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+                o.vertex = TransformObjectToHClip(v.vertex.xyz);
+                return o;
+            }
+
+            float4 frag (v2f i) : SV_Target
+            {
+                return float4(1,0,1,1);
+            }
+            ENDHLSL
+        }
+    }
+
+    Fallback "Hidden/Core/FallbackError"
 }

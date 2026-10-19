@@ -1,43 +1,42 @@
-Shader "Hidden/Universal Render Pipeline/DBufferClear" {
-	Properties {
-	}
-	//DummyShaderTextExporter
-	SubShader{
-		Tags { "RenderType" = "Opaque" }
-		LOD 200
+Shader "Hidden/Universal Render Pipeline/DBufferClear"
+{
+    SubShader
+    {
+        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline"}
+        LOD 100
 
-		Pass
-		{
-			HLSLPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
+        Pass
+        {
+            Name "DBufferClear"
+            ZTest Always
+            ZWrite Off
+            Cull Off
 
-			float4x4 unity_ObjectToWorld;
-			float4x4 unity_MatrixVP;
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Fragment
+            #pragma multi_compile_fragment _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
 
-			struct Vertex_Stage_Input
-			{
-				float4 pos : POSITION;
-			};
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/Runtime/Utilities/Blit.hlsl"
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
 
-			struct Vertex_Stage_Output
-			{
-				float4 pos : SV_POSITION;
-			};
+            void Fragment(
+                Varyings input,
+                OUTPUT_DBUFFER(outDBuffer))
+            {
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
-			Vertex_Stage_Output vert(Vertex_Stage_Input input)
-			{
-				Vertex_Stage_Output output;
-				output.pos = mul(unity_MatrixVP, mul(unity_ObjectToWorld, input.pos));
-				return output;
-			}
-
-			float4 frag(Vertex_Stage_Output input) : SV_TARGET
-			{
-				return float4(1.0, 1.0, 1.0, 1.0); // RGBA
-			}
-
-			ENDHLSL
-		}
-	}
+                outDBuffer0 = half4(0, 0, 0, 1);
+#if defined(_DBUFFER_MRT3) || defined(_DBUFFER_MRT2)
+                outDBuffer1 = half4(0.5f, 0.5f, 0.5f, 1);
+#endif
+#if defined(_DBUFFER_MRT3)
+                outDBuffer2 = half4(0, 0, 0, 1);
+#endif
+            }
+            ENDHLSL
+        }
+    }
 }
