@@ -196,6 +196,16 @@ If you ever need to redo it: let ONE build boot with the file deleted, grab the 
    (copies of the shipped ones) with `lint { abortOnError false; checkReleaseBuilds false }` —
    that removes the lintVital* tasks entirely. Note: `abortOnError false` alone does NOT survive
    this — the crash happens inside the work action before lint reports anything.
+7. *Auto targetSdk flip after the SDK patch* — next run failed in gradle with
+   `Failed to install the following SDK components: platforms;android-37.0` /
+   `The SDK directory is not writable`. Cause: `AndroidTargetSdkVersion: 0` (= auto) in
+   ProjectSettings made Unity pick the highest INSTALLED platform; before the patch android-37
+   was invalid and ignored (auto→36), after the `ApiLevel=37` fix Unity selected it and emitted
+   `compileSdk 37/targetSdk 37` in the generated gradle, whose platform string resolves to
+   `android-37.0`, which AGP cannot satisfy from this SDK. Fix: pin
+   `AndroidTargetSdkVersion: 36` explicitly in `ProjectSettings\ProjectSettings.asset`
+   (compile/target 36 is what the last successful gradle phase used). Keep the android-37
+   platform installed but nothing will reference it.
 
 ---
 
