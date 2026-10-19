@@ -13,8 +13,7 @@ PluginImporter:
   isExplicitlyReferenced: 0
   validateReferences: 0
   platformData:
-    Any:
-      enabled: 1
+    $10
       settings: {}
     Editor:
       enabled: 0
@@ -26,3 +25,4 @@ PluginImporter:
   userData:
   assetBundleName:
   assetBundleVariant:
+
