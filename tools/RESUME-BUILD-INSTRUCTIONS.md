@@ -207,6 +207,8 @@ If you ever need to redo it: let ONE build boot with the file deleted, grab the 
    (compile/target 36 is what the last successful gradle phase used). Keep the android-37
    platform installed but nothing will reference it.
 
+6. **ProBuilder package embedded (device pink blockout fix)** — see `tools/probuilder-shader-graph-fix.md`.
+
 ---
 
 ## 4. Upload to the GitHub release
