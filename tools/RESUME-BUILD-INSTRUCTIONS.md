@@ -9,6 +9,36 @@
 
 ---
 
+## 0. Build #7 — 2026-10-20, new machine (`D:\pnc-reverse`, 16 GB RAM) — SUCCESS pre-device
+
+Facts that supersede older notes below where they disagree:
+
+- **Unity CLI module catalog is FIXED in 1.0.0-beta.12.** Section 1's manual device-SDK assembly
+  is no longer needed: `unity install-modules --editor-version 6000.3.11f1 --module android
+  --module android-sdk-ndk-tools --module android-open-jdk-17.0.9+9 --accept-eula --non-interactive`
+  installed the whole Android toolchain (NDK r27c, SDK platforms 34/35/36, build-tools 36,
+  OpenJDK 17.0.9) in one shot. Only recourse if a future CLI regresses.
+- **Build command** (`--no-tail` so the shell returns; exit surfaced via `unity.exe` code 0,
+  log in `ExportedProject\Logs\build-Android-*.log`):
+  `unity build "D:\pnc-reverse\ExportedProject" --profile Android -o "D:\pnc-build\pnc-0.3.1.apk" --no-tail --non-interactive`
+  (set `$env:TMP/TEMP/TMPDIR` to `D:\temp` first — C: is thin on this box).
+- Result: **78 min wall** end-to-end on a fresh Library (asset import only ~15 min of it),
+  APK **108.0 MB** (previous machine's build was 114.8 MB — the ~6.8 MB delta is the deleted
+  ShaderGraph's stripped-nonsense, see `tools/probuilder-shader-graph-fix.md`),
+  `0 error CS|Shader error` lines and `0 OutOfMemory` lines in the log — the 16 GB box survived
+  comfortably where build #6 OOMed.
+- Log greps proving the fix: embedded package resolved as
+  `com.unity.probuilder@file:D:\...\Packages\com.unity.probuilder`; exactly one
+  `Compiling shader "ProBuilder6/Standard Vertex Color"` + serialized binary data line for the
+  Assets copy; **zero** `.shadergraph` asset compile lines (remaining 575 "shadergraph" text
+  hits are the `com.unity.shadergraph` package's own C# assembly names, not assets).
+- The `fallback shader 'Hidden/Shader Graph/FallbackError' not found` importer warnings are
+  cosmetic and pre-existing (appear for URP/Lit, AllIn1, ours alike); the primary shader
+  compiled fine, fallbacks are never packed.
+- Post-build visual verification happens via a **StandaloneWindows64 re-target build**
+  (reuses the Library; fast) run locally + screenshot, then the same APK goes to the device.
+
+
 ## 1. Machine setup (already done once — redo on a NEW PC)
 
 | Item | Value |

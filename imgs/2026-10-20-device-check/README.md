@@ -43,3 +43,11 @@ Ranked hypotheses:
 - `01-menu-room-magenta-opaques-sprites-ok.jpg`
 - `02-exit-to-home.jpg`
 (Extracted with ffmpeg from the screen recording; timestamps 00:09 and 00:22.)
+
+## PC reference (regenerated 2026-10-20 ~01:05)
+The old `Documents/pcversion.jpg` did not survive the machine swap; the PC build from
+`Downloads/Post_Nut_Calamity_0.3.1_Win.zip` was launched and screenshotted instead:
+`../pc-reference/pc-reference-menu.jpg` — original main menu (altar room): textured
+brick walls, wooden floor/ceiling, candle sprites, cross+butt centerpiece, TMP menu
+text (Play/Gallery/Unlocks/Options/Exit), supporters panel, version 0.3.1. The menu
+runs in a portrait window on PC (1080x2240) - same letterbox behavior Android shows.
